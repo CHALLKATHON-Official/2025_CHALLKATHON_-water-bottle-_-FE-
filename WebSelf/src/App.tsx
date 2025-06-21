@@ -1,11 +1,26 @@
-import './App.css'
+import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from './../pages/HomePage';
+import AnalysisPage1 from './../pages/AnalysisPage1';
+import AnalysisPage2 from './../pages/AnalysisPage2';
+import AnalysisPage3 from './../pages/AnalysisPage3';
+import NotFoundPage from './../pages/NotFoundPage';
+import HomeLayout from './../layouts/HomeLayout';
 
 const App = () => {
   return (
-    <div className='text-3xl font-bold underline'>
-      Hello World!
-    </div>
-  )
-}
+    <BrowserRouter>
+      <HomeLayout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/analysis1" element={<AnalysisPage1 />} />
+          <Route path="/analysis2" element={<AnalysisPage2 />} />
+          <Route path="/analysis3" element={<AnalysisPage3 />} />
+          <Route path="*" element={<NotFoundPage />} /> {/* 404 페이지 */}
+        </Routes>
+      </HomeLayout>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
