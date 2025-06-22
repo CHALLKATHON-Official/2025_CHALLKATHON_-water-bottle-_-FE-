@@ -6,8 +6,9 @@ const Navbar = () => {
     <header className="bg-white shadow p-4">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* 왼쪽: 로고 */}
-        <Link to="/" className="text-2xl font-bold text-blue-600">
-          WebSelf
+        <Link to="/" className="flex items-center text-2xl font-bold text-blue-600">
+          <img src='../public/WebSelf_Logo_nobg.png' alt="WebSelf Logo" className="h-15 w-15"/>
+          <span> WebSelf </span>
         </Link>
 
         {/* 오른쪽: 분석 페이지 버튼 */}

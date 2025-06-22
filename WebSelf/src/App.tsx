@@ -10,15 +10,18 @@ import HomeLayout from './../layouts/HomeLayout';
 const App = () => {
   return (
     <BrowserRouter>
-      <HomeLayout>
-        <Routes>
+      <Routes>
+        {/* Layout이 필요한 페이지들 */}
+        <Route element={<HomeLayout children={undefined} />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/analysis1" element={<AnalysisPage1 />} />
           <Route path="/analysis2" element={<AnalysisPage2 />} />
           <Route path="/analysis3" element={<AnalysisPage3 />} />
-          <Route path="*" element={<NotFoundPage />} /> {/* 404 페이지 */}
-        </Routes>
-      </HomeLayout>
+        </Route>
+
+        {/* Layout이 없는 404 페이지 */}
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </BrowserRouter>
   );
 };
