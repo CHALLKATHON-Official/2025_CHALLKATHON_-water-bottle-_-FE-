@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './../pages/HomePage';
@@ -12,7 +13,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         {/* Layout이 필요한 페이지들 */}
-        <Route element={<HomeLayout children={undefined} />}>
+        <Route element={<HomeLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/analysis1" element={<AnalysisPage1 />} />
           <Route path="/analysis2" element={<AnalysisPage2 />} />
