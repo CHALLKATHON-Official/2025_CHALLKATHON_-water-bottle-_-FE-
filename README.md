@@ -11,7 +11,7 @@
 
 | Frontend | Backend |
 |----------|---------|
-| React + Vite<br>TypeScript<br>Tailwind CSS | _(Coming Soon)_ |
+| React + Vite<br>TypeScript<br>Tailwind CSS | _Node(express.js)_ |
 
 ---
 
