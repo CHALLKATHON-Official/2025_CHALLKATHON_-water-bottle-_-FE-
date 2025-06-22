@@ -1,30 +1,39 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import React from 'react';
 
 const Navbar = () => {
-  return (
-    <header className="bg-white shadow p-4">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* 왼쪽: 로고 */}
-        <Link to="/" className="flex items-center text-2xl font-bold text-blue-600">
-          <img src='../public/WebSelf_Logo_nobg.png' alt="WebSelf Logo" className="h-15 w-15"/>
-          <span> WebSelf </span>
-        </Link>
+  const [scrolled, setScrolled] = useState(false);
 
-        {/* 오른쪽: 분석 페이지 버튼 */}
-        <nav className="space-x-4">
-          <Link to="/analysis1" className="text-gray-700 hover:text-blue-600">
-            분석 1
-          </Link>
-          <Link to="/analysis2" className="text-gray-700 hover:text-blue-600">
-            분석 2
-          </Link>
-          <Link to="/analysis3" className="text-gray-700 hover:text-blue-600">
-            분석 3
-          </Link>
-        </nav>
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <nav
+      className={`
+        fixed top-0 left-0 right-0 z-50 px-6 py-3 bg-white shadow
+        transform transition-all duration-500
+        ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10 pointer-events-none'}
+      `}
+    >
+      <div className="flex items-center justify-between max-w-5xl mx-auto">
+        <Link to="/" className="flex items-center space-x-2">
+          <img src="../public/WebSelf_logo_nobg.png" alt="WebSelf Logo" className="h-8 w-8" />
+          <span className="text-xl font-bold">WebSelf</span>
+        </Link>
+        <div className="space-x-4 text-sm">
+          <Link to="/analysis1">분석1</Link>
+          <Link to="/analysis2">분석2</Link>
+          <Link to="/analysis3">분석3</Link>
+        </div>
       </div>
-    </header>
+    </nav>
   );
 };
 
