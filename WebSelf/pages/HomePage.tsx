@@ -53,8 +53,23 @@ const HomePage = () => {
     <div className="flex flex-col">
       {/* ⬆️ 인트로 영역 */}
       <section className="h-screen flex flex-col items-center justify-center text-center relative bg-white overflow-hidden">
-        <img src="/WebSelf_logo_nobg.png" alt="WebSelf Logo" className="w-40 h-40 animate-float" />
-        <h1 className="text-6xl font-bold text-blue-600 mt-4">WebSelf</h1>
+        <div
+          className="transition-all duration-200 "
+          style={{
+            opacity,
+            transform: `translateY(${translateY}px)`,
+          }}
+        >
+          <img src="../public/WebSelf_logo_nobg.png" alt="WebSelf Logo" className="w-40 h-40 ml-9 animate-float" />
+          <h1 className="text-6xl font-bold text-blue-600 ">WebSelf</h1>
+        </div>
+
+        {/* 화살표는 여전히 등장 */}
+        {showArrow && (
+          <div className="absolute bottom-10 animate-bounce text-gray-400 text-3xl">
+          ˬ
+          </div>
+        )}
       </section>
 
       {isExtensionInstalled ? (
