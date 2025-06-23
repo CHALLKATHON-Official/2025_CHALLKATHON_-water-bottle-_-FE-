@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaArrowUp } from 'react-icons/fa'; // 화살표 아이콘 추가
 
 const NonExtensionHomePage = () => {
   const [opacity, setOpacity] = useState(1);
   const [translateY, setTranslateY] = useState(0);
   const [showArrow, setShowArrow] = useState(true);
+  const [showScrollTop, setShowScrollTop] = useState(false); // 맨위버튼 표시 여부
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
 
+      // 인트로 텍스트 사라지게
       if (scrollY > 100) {
         setOpacity(0);
         setTranslateY(-50);
@@ -19,11 +22,23 @@ const NonExtensionHomePage = () => {
         setTranslateY(0);
         setShowArrow(true);
       }
+
+      // 맨 위로 버튼 보이게
+      if (scrollY > 400) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // 맨 위로 이동 함수
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <div className="flex flex-col">
@@ -46,7 +61,6 @@ const NonExtensionHomePage = () => {
           <h2 className="text-2xl font-semibold text-blue-800 drop-shadow-lg">-웹 사용 습관 분석 페이지에 오신 것을-</h2>
           <br />
           <h2 className="text-4xl font-semibold text-blue-800 drop-shadow-lg">- 환영합니다! -</h2>
-
         </div>
         {showArrow && (
           <div className="absolute bottom-10 animate-bounce text-gray-400 text-3xl">ˬ</div>
@@ -72,8 +86,15 @@ const NonExtensionHomePage = () => {
         </p>
       </section>
 
-
-
+      {/* 맨 위로 버튼 */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 p-3 bg-white/50 text-black rounded-full shadow-lg animate-float hover:bg-gray-300 transition z-50"
+        >
+          <FaArrowUp />
+        </button>
+      )}
     </div>
   );
 };
