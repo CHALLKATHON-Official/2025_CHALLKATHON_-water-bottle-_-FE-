@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Analysis1 from '../pages/Analysis1';
+import AnalysisTopList from '../pages/AnalysisTopList';
 
 // UUID 생성
 const generateUUID = () => {
@@ -78,6 +79,11 @@ const HomePage = () => {
             </p>
           </div>
           <Analysis1 userId={userId} />
+          <div className="grid md:grid-cols-3 gap-6 px-6 mt-10">
+            <AnalysisTopList userId={userId} period="7days" />
+            <AnalysisTopList userId={userId} period="30days" />
+            <AnalysisTopList userId={userId} period="90days" />
+          </div>
         </section>
       ) : (
         <section className="text-center py-20 bg-gray-50">
