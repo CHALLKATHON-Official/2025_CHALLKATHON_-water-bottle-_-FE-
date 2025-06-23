@@ -17,7 +17,6 @@ const getOrCreateUserId = (): string => {
     userId = generateUUID();
     localStorage.setItem('userId', userId);
   }
-  console.log("🌐 웹에서 userId:", userId);
   return userId;
 };
 
@@ -29,7 +28,6 @@ const HomePage = () => {
     fetch(`http://localhost:3000/api/check/${userId}/7days`)
       .then(res => res.json())
       .then(data => {
-        console.log('📊 서버에서 받은 데이터:', data);
         setIsExtensionInstalled(data.length > 0);
       })
       .catch(err => {

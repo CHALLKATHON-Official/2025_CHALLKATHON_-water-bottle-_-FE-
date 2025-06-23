@@ -4,9 +4,12 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from 'chart.js';
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
-type SiteData = {
-  site: string;
-  visit_count: number;
+type AnalyzedData = {
+  domain: string;
+  visitCount: number;
+  visitPercent: number;
+  timeMsCount: number;
+  timePercent: number;
 };
 
 interface Props {
@@ -16,11 +19,11 @@ interface Props {
 const periods: ("7days" | "30days" | "90days")[] = ["7days", "30days", "90days"];
 
 const Analysis1: React.FC<Props> = ({ userId }) => {
-  const [dataByPeriod, setDataByPeriod] = useState<Record<string, SiteData[]>>({});
+  const [dataByPeriod, setDataByPeriod] = useState<Record<string, AnalyzedData[]>>({});
 
   useEffect(() => {
     const fetchData = async () => {
-      const results: Record<string, SiteData[]> = {};
+      const results: Record<string, AnalyzedData[]> = {};
       for (const period of periods) {
         const res = await fetch(`http://localhost:3000/api/summary/${userId}/${period}`);
         const json = await res.json();
@@ -33,7 +36,7 @@ const Analysis1: React.FC<Props> = ({ userId }) => {
 
   return (
     <div className="px-6 py-16 max-w-6xl mx-auto">
-      <h2 className="text-2xl font-bold mb-6">🎯 사이트별 방문 횟수 분석 (비율)</h2>
+      <h2 className="text-2xl font-bold mb-6">🎯 사이트별 방문 비율 분석 (최근 n일)</h2>
 
       <div className="grid md:grid-cols-3 gap-10">
         {periods.map((period) => {
@@ -47,8 +50,8 @@ const Analysis1: React.FC<Props> = ({ userId }) => {
             );
           }
 
-          const labels = entries.map(e => e.site);
-          const values = entries.map(e => e.visit_count);
+          const labels = entries.map(e => e.domain);
+          const values = entries.map(e => e.visitPercent); // visitCount 대신 비율로 표시
 
           const chartData = {
             labels,
