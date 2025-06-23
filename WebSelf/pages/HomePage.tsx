@@ -39,7 +39,7 @@ const HomePage = () => {
         {/* 화살표는 여전히 등장 */}
         {showArrow && (
           <div className="absolute bottom-10 animate-bounce text-gray-400 text-3xl">
-          ↓  ↓  ↓
+          ˬ
           </div>
         )}
       </section>
