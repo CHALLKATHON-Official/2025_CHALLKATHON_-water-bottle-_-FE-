@@ -18,7 +18,7 @@ interface Props {
 
 const periods: ("7days" | "30days" | "90days")[] = ["7days", "30days", "90days"];
 
-const Analysis1: React.FC<Props> = ({ userId }) => {
+const PerDaysAnalysis: React.FC<Props> = ({ userId }) => {
   const [dataByPeriod, setDataByPeriod] = useState<Record<string, AnalyzedData[]>>({});
 
   useEffect(() => {
@@ -91,4 +91,4 @@ const Analysis1: React.FC<Props> = ({ userId }) => {
   );
 };
 
-export default Analysis1;
+export default PerDaysAnalysis;

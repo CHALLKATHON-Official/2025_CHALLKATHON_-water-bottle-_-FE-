@@ -37,9 +37,9 @@ const HomePage = () => {
   }
 
   return isExtensionInstalled ? (
-    <ExtensionPage userId={userId} />
+    <NonExtensionPage userId={userId} />
   ) : (
-    <NonExtensionPage />
+    <ExtensionPage />
   );
 };
 

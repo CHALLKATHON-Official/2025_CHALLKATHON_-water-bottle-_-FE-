@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import Analysis1 from '../pages/Analysis1';
-import AnalysisTopList from '../pages/AnalysisTopList';
+import PerDaysAnalysis from '../components/Analysis/PerDaysAnalysis';
+import CircleGraphAnalysis from '../components/Analysis/CircleGraphAnalysis';
+
 
 interface Props {
   userId: string;
@@ -36,11 +37,11 @@ const ExtensionHomePage = ({ userId }: Props) => {
             WebSelf가 수집한 브라우저 사용 기록을 기반으로 분석한 결과입니다.
           </p>
         </div>
-        <Analysis1 userId={userId} />
+        <PerDaysAnalysis userId={userId} />
         <div className="grid md:grid-cols-3 gap-x-60 gap-y-8 justify-items-center">
-          <AnalysisTopList userId={userId} period="7days" />
-          <AnalysisTopList userId={userId} period="30days" />
-          <AnalysisTopList userId={userId} period="90days" />
+          <CircleGraphAnalysis userId={userId} period="7days" />
+          <CircleGraphAnalysis userId={userId} period="30days" />
+          <CircleGraphAnalysis userId={userId} period="90days" />
         </div>
       </section>
     </div>
