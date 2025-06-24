@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PerDaysAnalysis from '../components/Analysis/PerDaysAnalysis';
 import CircleGraphAnalysis from '../components/Analysis/CircleGraphAnalysis';
-
 import ActivityChartAnalysis from '../components/Analysis/ActivityChartAnalysis';
 import { FaArrowUp } from 'react-icons/fa'; // 아이콘 추가
 import ClockActivityChart from '../components/Analysis/AnalysisHourlyActivity';
@@ -17,7 +16,7 @@ const ExtensionHomePage = ({ userId }: Props) => {
   const [translateY, setTranslateY] = useState(0);
   const [showArrow, setShowArrow] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [showCharts, setShowCharts] = useState(false);
+
 
   const chartRef = useRef<HTMLDivElement>(null);
 
@@ -81,7 +80,7 @@ const ExtensionHomePage = ({ userId }: Props) => {
             alt="WebSelf Logo"
             className="w-40 h-40 ml-33 animate-float"
           />
-          <h1 className="text-6xl font-bold text-blue-600 drop-shadow-lg">WebSelf</h1>
+          <h1 className="text-6xl font-bold font-bungee text-blue-600 drop-shadow-lg">WebSelf</h1>
           <br />
           <h2 className="text-2xl text-blue-800 drop-shadow-lg">-웹 사용 습관 분석 페이지에 오신 것을-</h2>
           <br />

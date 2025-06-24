@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import React from 'react';
+import '../src/index.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -26,7 +27,7 @@ const Navbar = () => {
         {/* 왼쪽 로고 */}
         <Link to="/" className="flex items-center space-x-2">
           <img src="/WebSelf_logo_nobg.png" alt="WebSelf Logo" className="h-8 w-8" />
-          <span className="text-xl font-bold">WebSelf</span>
+          <span className="text-xl font-bold font-bungee">WebSelf</span>
         </Link>
 
         {/* 오른쪽 버튼들 */}
