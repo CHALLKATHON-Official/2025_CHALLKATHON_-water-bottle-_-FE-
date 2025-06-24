@@ -36,7 +36,7 @@ const PerDaysAnalysis: React.FC<Props> = ({ userId }) => {
 
   return (
     <div className="px-6 py-16 max-w-6xl mx-auto">
-      <h2 className="text-2xl  text-center text-blue-800 font-bold drop-shadow-lg">🎯 사이트별 방문 비율 분석 (최근 n일)</h2>
+      <h2 className="text-2xl  text-center text-blue-800 drop-shadow-lg py-3">사이트별 방문 비율 분석</h2>
       
       <div className="grid md:grid-cols-3 gap-10">
         {periods.map((period) => {

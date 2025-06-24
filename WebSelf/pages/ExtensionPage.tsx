@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PerDaysAnalysis from '../components/Analysis/PerDaysAnalysis';
 import CircleGraphAnalysis from '../components/Analysis/CircleGraphAnalysis';
-
 import ActivityChartAnalysis from '../components/Analysis/ActivityChartAnalysis';
 import { FaArrowUp } from 'react-icons/fa'; // 아이콘 추가
 import ClockActivityChart from '../components/Analysis/AnalysisHourlyActivity';
 import CategoryPieChart from '../components/Analysis/SiteCategoryChart';
+import TypingIntro from '../components/TypingIntro';
 
 interface Props {
   userId: string;
@@ -16,7 +16,7 @@ const ExtensionHomePage = ({ userId }: Props) => {
   const [translateY, setTranslateY] = useState(0);
   const [showArrow, setShowArrow] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [showCharts, setShowCharts] = useState(false);
+
 
   const chartRef = useRef<HTMLDivElement>(null);
 
@@ -34,32 +34,31 @@ const ExtensionHomePage = ({ userId }: Props) => {
         setShowArrow(true);
       }
 
-      if (scrollY > 400) {
-        setShowScrollTop(true);
-      } else {
-        setShowScrollTop(false);
-      }
+      setShowScrollTop(scrollY > 400);
     };
 
+    const fadeEls = document.querySelectorAll('.fade-in-on-scroll');
+
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShowCharts(true);
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
       },
       { threshold: 0.2 }
     );
 
-    if (chartRef.current) {
-      observer.observe(chartRef.current);
-    }
+    fadeEls.forEach((el) => observer.observe(el));
 
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      if (chartRef.current) observer.unobserve(chartRef.current);
+      fadeEls.forEach((el) => observer.unobserve(el));
     };
   }, []);
+
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -81,7 +80,7 @@ const ExtensionHomePage = ({ userId }: Props) => {
             alt="WebSelf Logo"
             className="w-40 h-40 ml-33 animate-float"
           />
-          <h1 className="text-6xl font-bold text-blue-600 drop-shadow-lg">WebSelf</h1>
+          <h1 className="text-6xl font-bold font-bungee text-blue-600 drop-shadow-lg">WebSelf</h1>
           <br />
           <h2 className="text-2xl text-blue-800 drop-shadow-lg">-웹 사용 습관 분석 페이지에 오신 것을-</h2>
           <br />
@@ -92,17 +91,20 @@ const ExtensionHomePage = ({ userId }: Props) => {
         )}
       </section>
 
-      {/* 분석 안내 영역 */}
       <section className="px-6 py-20 max-w-3xl mx-auto">
-        <div className="space-y-4 min-h-[40vh] flex flex-col justify-center">
-          <h2 className="text-2xl text-blue-800 font-bold drop-shadow-lg">📊 웹 사용 습관 분석</h2>
-          <p className="text-gray-700 text-lg">
-            WebSelf가 수집한 브라우저 사용 기록을 기반으로 분석한 결과입니다.
-          </p>
-        </div>
-        <PerDaysAnalysis userId={userId} />
+        
+        {/* 분석 인트로 섹션 */}
+        <section className="h-screen relative">
+          <TypingIntro />
+        </section>
 
-        <div className="grid md:grid-cols-3 gap-x-60 gap-y-8 justify-items-center">
+        {/* 요일별 분석 */}
+        <div className="mb-100 mt-100 fade-in-on-scroll" ref={chartRef}>
+          <PerDaysAnalysis userId={userId} />
+        </div>
+
+        {/* 원형 그래프 분석 */}
+        <div className="grid md:grid-cols-3 mb-100 mt-100 gap-x-60 gap-y-8 justify-items-center mb-24 fade-in-on-scroll">
           <CircleGraphAnalysis userId={userId} period="7days" />
           <CircleGraphAnalysis userId={userId} period="30days" />
           <CircleGraphAnalysis userId={userId} period="90days" />
@@ -111,16 +113,10 @@ const ExtensionHomePage = ({ userId }: Props) => {
         <ClockActivityChart userId={userId} period="7days" />
         <div className="mt-10">
           <CategoryPieChart userId={userId} period="7days" />
+
         </div>
       </section>
 
-      {/* 분석 차트 영역 (스크롤 시 등장) */}
-      <div
-        ref={chartRef}
-        className={`transition-opacity duration-1000 ease-in-out ${showCharts ? 'opacity-100' : 'opacity-0'
-          }`}
-      >
-      </div>
       {/* 맨 위로 버튼 */}
       {showScrollTop && (
         <button

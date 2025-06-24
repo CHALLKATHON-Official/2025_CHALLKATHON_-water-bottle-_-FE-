@@ -16,13 +16,13 @@ interface Props {
 }
 
 const getColor = (value: number, max: number): string => {
-  if (value === 0) return '#FFFFFF'; // 방문 수 0이면 흰색
+  if (value === 0) return '#FFFFFF';
   const ratio = value / max;
-  if (ratio > 0.8) return '#B91C1C';       // 진한 빨강
-  if (ratio > 0.6) return '#EF4444';       // 빨강
-  if (ratio > 0.4) return '#F87171';       // 연한 빨강
-  if (ratio > 0.2) return '#FCA5A5';       // 더 연한 빨강
-  return '#FEE2E2';                        // 거의 흰색
+  if (ratio > 0.8) return '#6003b8';
+  if (ratio > 0.6) return '#7229ad';
+  if (ratio > 0.4) return '#9c69c5d2';
+  if (ratio > 0.2) return '#b989e6';
+  return '#FEE2E2';
 };
 
 const ClockActivityChart: React.FC<Props> = ({ userId, period }) => {
@@ -49,7 +49,7 @@ const ClockActivityChart: React.FC<Props> = ({ userId, period }) => {
     datasets: [
       {
         label: '방문량',
-        data: Array(24).fill(1), // 모든 바 크기를 동일하게
+        data: Array(24).fill(1),
         backgroundColor: hourlyData.map(val => getColor(val, maxCount)),
       }
     ]
@@ -82,9 +82,9 @@ const ClockActivityChart: React.FC<Props> = ({ userId, period }) => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow-md mt-10">
-      <h3 className="text-lg font-semibold mb-4">
-        🕒 시간대별 방문 시계 (색상 강조)
+    <div className="mt-10 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl">
+      <h3 className="mb-6 text-xl text-blue-800 drop-shadow-lg">
+        시간대별 방문 시계
       </h3>
       <PolarArea data={chartData} options={options} />
     </div>
