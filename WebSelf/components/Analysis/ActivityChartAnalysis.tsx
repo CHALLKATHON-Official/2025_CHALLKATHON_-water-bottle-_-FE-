@@ -1,4 +1,4 @@
-// AnalysisActivityChart.tsx
+// ActivityChartAnalysis.tsx
 import React, { useEffect, useState } from 'react';
 import {
   Chart as ChartJS,
@@ -38,7 +38,7 @@ interface DailyData {
   visitCount: number;
 }
 
-const AnalysisActivityChart: React.FC<Props> = ({ userId, period }) => {
+const ActivityChartAnalysis: React.FC<Props> = ({ userId, period }) => {
   const [dailyData, setDailyData] = useState<DailyData[]>([]);
 
   useEffect(() => {
@@ -98,4 +98,4 @@ const AnalysisActivityChart: React.FC<Props> = ({ userId, period }) => {
   );
 };
 
-export default AnalysisActivityChart;
+export default ActivityChartAnalysis;
