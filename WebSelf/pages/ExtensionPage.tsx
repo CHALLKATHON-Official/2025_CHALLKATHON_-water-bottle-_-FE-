@@ -3,13 +3,9 @@ import PerDaysAnalysis from '../components/Analysis/PerDaysAnalysis';
 import CircleGraphAnalysis from '../components/Analysis/CircleGraphAnalysis';
 
 import ActivityChartAnalysis from '../components/Analysis/ActivityChartAnalysis';
-<<<<<<< HEAD
 import { FaArrowUp } from 'react-icons/fa'; // 아이콘 추가
 import AnalysisHourlyActivity from '../components/Analysis/AnalysisHourlyActivity';
-=======
-import { FaArrowUp } from 'react-icons/fa';
 
->>>>>>> 174a43bebcad748ff823e0de02968b59acfbd589
 interface Props {
   userId: string;
 }
