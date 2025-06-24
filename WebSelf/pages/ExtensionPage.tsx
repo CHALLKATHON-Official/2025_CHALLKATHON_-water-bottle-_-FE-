@@ -5,7 +5,7 @@ import CircleGraphAnalysis from '../components/Analysis/CircleGraphAnalysis';
 import ActivityChartAnalysis from '../components/Analysis/ActivityChartAnalysis';
 import { FaArrowUp } from 'react-icons/fa'; // 아이콘 추가
 import ClockActivityChart from '../components/Analysis/AnalysisHourlyActivity';
-import SiteCategoryChart from '../components/Analysis/SiteCategoryChart';
+import CategoryPieChart from '../components/Analysis/SiteCategoryChart';
 
 interface Props {
   userId: string;
@@ -110,7 +110,7 @@ const ExtensionHomePage = ({ userId }: Props) => {
         <ActivityChartAnalysis userId={userId} period="7days" />
         <ClockActivityChart userId={userId} period="7days" />
         <div className="mt-10">
-          <SiteCategoryChart userId={userId} period="7days" />
+          <CategoryPieChart userId={userId} period="7days" />
         </div>
       </section>
 

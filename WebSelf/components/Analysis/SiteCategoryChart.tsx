@@ -19,11 +19,15 @@ const CategoryPieChart: React.FC<Props> = ({ userId, period }) => {
   const [dataMap, setDataMap] = useState<Record<string, number>>({});
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/category-summary/${userId}/${period}`)
+      fetch(`http://localhost:3000/api/category-summary/${userId}/${period}`)
       .then(res => res.json())
-      .then(setDataMap)
+      .then(data => {
+        setDataMap(data);
+      })
       .catch(err => console.error('❌ 유형별 분석 오류:', err));
   }, [userId, period]);
+
+
 
   const labels = Object.keys(dataMap);
   const values = Object.values(dataMap);
