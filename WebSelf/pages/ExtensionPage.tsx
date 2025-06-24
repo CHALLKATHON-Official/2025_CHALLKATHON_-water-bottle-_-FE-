@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import PerDaysAnalysis from '../components/Analysis/PerDaysAnalysis';
 import CircleGraphAnalysis from '../components/Analysis/CircleGraphAnalysis';
 import ActivityChartAnalysis from '../components/Analysis/ActivityChartAnalysis';
-import { FaArrowUp } from 'react-icons/fa'; // 아이콘 추가
 import ClockActivityChart from '../components/Analysis/AnalysisHourlyActivity';
 import CategoryPieChart from '../components/Analysis/SiteCategoryChart';
 import TypingIntro from '../components/TypingIntro';
+import TopButton from '../components/TopButton';
 
 interface Props {
   userId: string;
@@ -15,8 +15,6 @@ const ExtensionHomePage = ({ userId }: Props) => {
   const [opacity, setOpacity] = useState(1);
   const [translateY, setTranslateY] = useState(0);
   const [showArrow, setShowArrow] = useState(true);
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
 
   const chartRef = useRef<HTMLDivElement>(null);
 
@@ -33,8 +31,6 @@ const ExtensionHomePage = ({ userId }: Props) => {
         setTranslateY(0);
         setShowArrow(true);
       }
-
-      setShowScrollTop(scrollY > 400);
     };
 
     const fadeEls = document.querySelectorAll('.fade-in-on-scroll');
@@ -58,11 +54,6 @@ const ExtensionHomePage = ({ userId }: Props) => {
       fadeEls.forEach((el) => observer.unobserve(el));
     };
   }, []);
-
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   return (
     <div className="flex flex-col">
@@ -92,7 +83,6 @@ const ExtensionHomePage = ({ userId }: Props) => {
       </section>
 
       <section className="px-6 py-20 max-w-3xl mx-auto">
-        
         {/* 분석 인트로 섹션 */}
         <section className="h-screen relative">
           <TypingIntro />
@@ -109,23 +99,17 @@ const ExtensionHomePage = ({ userId }: Props) => {
           <CircleGraphAnalysis userId={userId} period="30days" />
           <CircleGraphAnalysis userId={userId} period="90days" />
         </div>
+
         <ActivityChartAnalysis userId={userId} period="7days" />
         <ClockActivityChart userId={userId} period="7days" />
+
         <div className="mt-10">
           <CategoryPieChart userId={userId} period="7days" />
-
         </div>
       </section>
 
       {/* 맨 위로 버튼 */}
-      {showScrollTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 bg-white/50 text-black rounded-full shadow-lg animate-float hover:bg-gray-300 transition z-50"
-        >
-          <FaArrowUp />
-        </button>
-      )}
+      <TopButton />
     </div>
   );
 };
