@@ -1,11 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import React from 'react';
 import '../src/index.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
+  const isGlobalAnalysisPage = location.pathname === '/global-analysis';
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -33,11 +35,13 @@ const Navbar = () => {
         {/* 오른쪽 버튼들 */}
         <div className="flex items-center space-x-4 text-sm">
           {/* 🔍 글로벌 분석 보기 버튼 */}
-          <Link to="/global-analysis">
-            <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-4 py-2 rounded-lg transition">
-              🌍 글로벌 사용자 분석 보기
-            </button>
-          </Link>
+          {!isGlobalAnalysisPage && (
+            <Link to="/global-analysis">
+              <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-4 py-2 rounded-lg transition">
+                🌍 글로벌 사용자 분석 보기
+              </button>
+            </Link>
+          )}
           {/* ✅ 확장 다운로드 버튼 */}
           <Link to="/download">
             <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition">
