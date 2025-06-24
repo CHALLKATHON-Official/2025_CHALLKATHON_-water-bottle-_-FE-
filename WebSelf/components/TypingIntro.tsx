@@ -7,7 +7,7 @@ const TypingIntro = () => {
     '당신의 디지털 흔적을 수집 중입니다...',
     'WebSelf가 사용자의 행동 패턴을 감지 중입니다...',
     'WebSelf가 생각 중입니다...',
-    '데이터 스트림 확보. 분석 알고리즘 가동 시작...'
+    '데이터 스트림 확보. 알고리즘 가동...'
   ];
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const TypingIntro = () => {
       )}
       {/* 네 번째 문장 - 오른쪽 상단 구름 위치 */}
       {step >= 4 && (
-        <div className="absolute left-[90%] bottom-[55%] bg-white px-6 py-3 rounded-full shadow-xl text-lg text-gray-800">
+        <div className="absolute left-[80%] bottom-[55%] bg-white px-6 py-3 rounded-full shadow-xl text-lg text-gray-800">
           <span className="typing">{messages[3]}</span>
         </div>
       )}

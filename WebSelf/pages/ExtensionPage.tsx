@@ -88,22 +88,26 @@ const ExtensionHomePage = ({ userId }: Props) => {
           <TypingIntro />
         </section>
 
-        {/* 요일별 분석 */}
+        {/* 원형 그래프 분석 */}
         <div className="mb-100 mt-100 fade-in-on-scroll" ref={chartRef}>
           <PerDaysAnalysis userId={userId} />
         </div>
-
-        {/* 원형 그래프 분석 */}
+        {/* 막대 그래프 분석 */}
         <div className="grid md:grid-cols-3 mb-100 mt-100 gap-x-60 gap-y-8 justify-items-center mb-24 fade-in-on-scroll">
           <CircleGraphAnalysis userId={userId} period="7days" />
           <CircleGraphAnalysis userId={userId} period="30days" />
           <CircleGraphAnalysis userId={userId} period="90days" />
         </div>
-
+        {/* 날짜별 차트 분석 */}
+        <div className="mb-100 mt-100 fade-in-on-scroll">
         <ActivityChartAnalysis userId={userId} period="7days" />
+        </div>
+        {/* 시간별 원형 분석 */}
+        <div className="mb-100 mt-100 fade-in-on-scroll">
         <ClockActivityChart userId={userId} period="7days" />
-
-        <div className="mt-10">
+        </div>
+        {/* 사이트 유형별 분석 */}
+        <div className="mb-100 mt-100 fade-in-on-scroll">
           <CategoryPieChart userId={userId} period="7days" />
         </div>
       </section>
