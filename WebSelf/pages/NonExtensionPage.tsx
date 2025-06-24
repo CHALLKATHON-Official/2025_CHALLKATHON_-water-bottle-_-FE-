@@ -43,7 +43,7 @@ const NonExtensionHomePage = () => {
   return (
     <div className="flex flex-col">
       {/* 인트로 영역 */}
-      <section className="h-screen flex flex-col items-center justify-center text-center relative bg-gradient-to-b from-white to-blue-100 overflow-hidden">
+      <section className="h-screen flex flex-col items-center justify-center text-center relative bg-gradient-to-b from-blue-100 to-white overflow-hidden">
         <div
           className="transition-all duration-500"
           style={{
@@ -68,7 +68,7 @@ const NonExtensionHomePage = () => {
       </section>
 
       {/* 안내 영역 */}
-      <section className="text-center py-24 bg-gradient-to-t from-white to-blue-100 min-h-screen flex flex-col justify-center items-center space-y-8">
+      <section className="text-center py-24 bg-gradient-to-t from-blue-100 to-white min-h-screen flex flex-col justify-center items-center space-y-8">
         <h2 className="text-4xl text-indigo-700 drop-shadow-md">
           😢 확장 프로그램이 아직 설치되지 않았어요!
         </h2>
