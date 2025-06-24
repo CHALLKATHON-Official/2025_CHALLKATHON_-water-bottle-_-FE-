@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PerDaysAnalysis from '../components/Analysis/PerDaysAnalysis';
 import CircleGraphAnalysis from '../components/Analysis/CircleGraphAnalysis';
+
 import ActivityChartAnalysis from '../components/Analysis/ActivityChartAnalysis';
-import { FaArrowUp } from 'react-icons/fa';
+import { FaArrowUp } from 'react-icons/fa'; // 아이콘 추가
+import AnalysisHourlyActivity from '../components/Analysis/AnalysisHourlyActivity';
 
 interface Props {
   userId: string;
@@ -97,6 +99,18 @@ const ExtensionHomePage = ({ userId }: Props) => {
             WebSelf가 수집한 브라우저 사용 기록을 기반으로 분석한 결과입니다.
           </p>
         </div>
+        <PerDaysAnalysis userId={userId} />
+
+        <div className="grid md:grid-cols-3 gap-x-60 gap-y-8 justify-items-center">
+          <CircleGraphAnalysis userId={userId} period="7days" />
+          <CircleGraphAnalysis userId={userId} period="30days" />
+          <CircleGraphAnalysis userId={userId} period="90days" />
+        </div>
+        <ActivityChartAnalysis userId={userId} period="7days" />
+        <div className="mt-10">
+          <AnalysisHourlyActivity userId={userId} period="7days" />
+        </div>
+
       </section>
 
       {/* 분석 차트 영역 (스크롤 시 등장) */}
@@ -105,17 +119,6 @@ const ExtensionHomePage = ({ userId }: Props) => {
         className={`transition-opacity duration-1000 ease-in-out ${showCharts ? 'opacity-100' : 'opacity-0'
           }`}
       >
-        <section className="px-6 pb-20 max-w-3xl mx-auto space-y-16">
-          <PerDaysAnalysis userId={userId} />
-
-          <div className="grid md:grid-cols-3 gap-x-60 gap-y-8 justify-items-center">
-            <CircleGraphAnalysis userId={userId} period="7days" />
-            <CircleGraphAnalysis userId={userId} period="30days" />
-            <CircleGraphAnalysis userId={userId} period="90days" />
-          </div>
-
-          <ActivityChartAnalysis userId={userId} period="7days" />
-        </section>
       </div>
       {/* 맨 위로 버튼 */}
       {showScrollTop && (
