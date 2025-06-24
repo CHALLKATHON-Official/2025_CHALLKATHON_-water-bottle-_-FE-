@@ -36,15 +36,15 @@ const PerDaysAnalysis: React.FC<Props> = ({ userId }) => {
 
   return (
     <div className="px-6 py-16 max-w-6xl mx-auto">
-      <h2 className="text-2xl font-bold mb-6">🎯 사이트별 방문 비율 분석 (최근 n일)</h2>
-
+      <h2 className="text-2xl  text-center text-blue-800 font-bold drop-shadow-lg">🎯 사이트별 방문 비율 분석 (최근 n일)</h2>
+      
       <div className="grid md:grid-cols-3 gap-10">
         {periods.map((period) => {
           const entries = dataByPeriod[period] || [];
 
           if (entries.length === 0) {
             return (
-              <div key={period} className="text-center text-gray-500">
+              <div key={period} className="text-center text-gray-700">
                 <p>{period} 데이터 없음</p>
               </div>
             );

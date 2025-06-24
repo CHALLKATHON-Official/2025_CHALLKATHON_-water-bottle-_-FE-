@@ -42,7 +42,7 @@ const NonExtensionHomePage = () => {
 
   return (
     <div className="flex flex-col">
-      {/* 인트로 영역 */}
+      
       <section className="h-screen flex flex-col items-center justify-center text-center relative bg-gradient-to-b from-blue-100 to-white overflow-hidden">
         <div
           className="transition-all duration-500"
