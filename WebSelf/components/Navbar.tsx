@@ -7,7 +7,8 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  const isGlobalAnalysisPage = location.pathname === '/global-analysis';
+  const isGlobalAnalysisPage = location.pathname === '/global';
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -36,7 +37,7 @@ const Navbar = () => {
         <div className="flex items-center space-x-4 text-sm">
           {/* 🔍 글로벌 분석 보기 버튼 */}
           {!isGlobalAnalysisPage && (
-            <Link to="/global-analysis">
+            <Link to="/global">
               <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-4 py-2 rounded-lg transition">
                 🌍 글로벌 사용자 분석 보기
               </button>
