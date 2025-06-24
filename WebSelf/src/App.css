@@ -1,0 +1,13 @@
+@keyframes spin-pulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.3) rotate(180deg);
+  }
+}
+
+.loader-spin-ping {
+  animation: spin-pulse 1.2s linear infinite;
+}
+    
