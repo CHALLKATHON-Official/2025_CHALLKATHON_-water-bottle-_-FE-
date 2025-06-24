@@ -119,17 +119,6 @@ const ExtensionHomePage = ({ userId }: Props) => {
         className={`transition-opacity duration-1000 ease-in-out ${showCharts ? 'opacity-100' : 'opacity-0'
           }`}
       >
-        <section className="px-6 pb-20 max-w-3xl mx-auto space-y-16">
-          <PerDaysAnalysis userId={userId} />
-
-          <div className="grid md:grid-cols-3 gap-x-60 gap-y-8 justify-items-center">
-            <CircleGraphAnalysis userId={userId} period="7days" />
-            <CircleGraphAnalysis userId={userId} period="30days" />
-            <CircleGraphAnalysis userId={userId} period="90days" />
-          </div>
-
-          <ActivityChartAnalysis userId={userId} period="7days" />
-        </section>
       </div>
       {/* 맨 위로 버튼 */}
       {showScrollTop && (
