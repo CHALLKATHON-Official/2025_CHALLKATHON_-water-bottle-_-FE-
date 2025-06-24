@@ -37,7 +37,7 @@ const ExtensionHomePage = ({ userId }: Props) => {
           </p>
         </div>
         <Analysis1 userId={userId} />
-        <div className="grid md:grid-cols-3 gap-6 px-6 mt-10">
+        <div className="grid md:grid-cols-3 gap-x-60 gap-y-8 justify-items-center">
           <AnalysisTopList userId={userId} period="7days" />
           <AnalysisTopList userId={userId} period="30days" />
           <AnalysisTopList userId={userId} period="90days" />
