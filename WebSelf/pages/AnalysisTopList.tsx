@@ -12,10 +12,12 @@ interface SiteEntry {
 }
 
 const titleMap = {
-  "7days": "최근 7일",
-  "30days": "최근 30일",
-  "90days": "최근 90일"
+  "7days": "최근 7일 Top 5",
+  "30days": "최근 30일 Top 5",
+  "90days": "최근 90일 Top 5"
 };
+
+const colors = ["#6366F1", "#3B82F6", "#10B981", "#F59E0B", "#EF4444"];
 
 const AnalysisTopList: React.FC<Props> = ({ userId, period }) => {
   const [topSites, setTopSites] = useState<SiteEntry[]>([]);
@@ -28,12 +30,28 @@ const AnalysisTopList: React.FC<Props> = ({ userId, period }) => {
   }, [userId, period]);
 
   return (
-    <div className="bg-white shadow rounded-xl p-6 w-full">
-      <h3 className="text-xl font-semibold mb-4 text-blue-700">{titleMap[period]} Top 5 사이트</h3>
-      {topSites.map((site, index) => (
-        <div key={index} className="flex justify-between items-center py-1 border-b">
-          <span>{index + 1}. {site.domain}</span>
-          <span>{site.visitCount}회 ({site.visitPercent}%)</span>
+    <div className="bg-white shadow-xl rounded-2xl p-6 w-[300px] min-w-[280px]">
+      <h3 className="text-xl font-bold text-gray-800 mb-6">{titleMap[period]}</h3>
+      {topSites.map((site, idx) => (
+        <div key={idx} className="mb-5">
+          <div className="flex justify-between items-center mb-1">
+            <span
+              className="text-gray-700 font-semibold block truncate w-full"
+              title={site.domain}
+            >
+              {idx + 1}. {site.domain}
+            </span>
+            <span className="text-sm text-gray-500">{site.visitCount}회 ({site.visitPercent}%)</span>
+          </div>
+          <div className="w-full h-2 rounded bg-gray-200 overflow-hidden">
+            <div
+              className="h-full rounded"
+              style={{
+                width: `${site.visitPercent}%`,
+                backgroundColor: colors[idx % colors.length]
+              }}
+            />
+          </div>
         </div>
       ))}
     </div>
