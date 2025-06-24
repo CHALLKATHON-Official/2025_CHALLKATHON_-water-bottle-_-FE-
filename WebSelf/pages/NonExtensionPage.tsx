@@ -58,9 +58,9 @@ const NonExtensionHomePage = () => {
           />
           <h1 className="text-6xl font-bold text-blue-600 drop-shadow-lg">WebSelf</h1>
           <br />
-          <h2 className="text-2xl font-semibold text-blue-800 drop-shadow-lg">-웹 사용 습관 분석 페이지에 오신 것을-</h2>
+          <h2 className="text-2xl text-blue-800 drop-shadow-lg">-웹 사용 습관 분석 페이지에 오신 것을-</h2>
           <br />
-          <h2 className="text-4xl font-semibold text-blue-800 drop-shadow-lg">- 환영합니다! -</h2>
+          <h2 className="text-4xl text-blue-800 drop-shadow-lg">- 환영합니다! -</h2>
         </div>
         {showArrow && (
           <div className="absolute bottom-10 animate-bounce text-gray-400 text-3xl">ˬ</div>
