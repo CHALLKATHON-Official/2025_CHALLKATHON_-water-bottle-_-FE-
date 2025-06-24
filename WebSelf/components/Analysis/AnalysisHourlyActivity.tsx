@@ -1,71 +1,82 @@
-// AnalysisHourlyActivity.tsx
 import React, { useEffect, useState } from 'react';
-import { Bar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
+  ArcElement,
   Tooltip,
-  Legend
+  Legend,
+  RadialLinearScale
 } from 'chart.js';
+import { PolarArea } from 'react-chartjs-2';
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend, RadialLinearScale);
 
 interface Props {
   userId: string;
   period: '7days' | '30days' | '90days';
 }
 
-const AnalysisHourlyActivity: React.FC<Props> = ({ userId, period }) => {
-  const [hourlyData, setHourlyData] = useState<number[]>([]);
+const getColor = (value: number, max: number): string => {
+  if (value === 0) return '#FFFFFF'; // 방문 수 0이면 흰색
+  const ratio = value / max;
+  if (ratio > 0.8) return '#B91C1C';       // 진한 빨강
+  if (ratio > 0.6) return '#EF4444';       // 빨강
+  if (ratio > 0.4) return '#F87171';       // 연한 빨강
+  if (ratio > 0.2) return '#FCA5A5';       // 더 연한 빨강
+  return '#FEE2E2';                        // 거의 흰색
+};
+
+const ClockActivityChart: React.FC<Props> = ({ userId, period }) => {
+  const [hourlyData, setHourlyData] = useState<number[]>(Array(24).fill(0));
 
   useEffect(() => {
     fetch(`http://localhost:3000/api/hourly-activity/${userId}/${period}`)
       .then(res => res.json())
       .then(data => {
-        const parsed = data.map((d: any) => ({
-          hour: Number(d.hour),
-          totalVisitCount: Number(d.totalVisitCount),
-          totalDwellTime: Number(d.totalDwellTime),
-        }));
-
-        const dataMap = Object.fromEntries(parsed.map(d => [d.hour, d.totalVisitCount]));
-        const counts = Array.from({ length: 24 }, (_, i) => dataMap[i] ?? 0);
-
-        setHourlyData(counts);
+        const visitCounts = Array(24).fill(0);
+        data.forEach((item: any) => {
+          visitCounts[Number(item.hour)] = Number(item.totalVisitCount);
+        });
+        setHourlyData(visitCounts);
       })
-      .catch(err => console.error("❌ 시간대 분석 오류:", err));
+      .catch(err => console.error('❌ 시계형 차트 오류:', err));
   }, [userId, period]);
 
+  const maxCount = Math.max(...hourlyData);
+  const labels = Array.from({ length: 24 }, (_, i) => `${i}시`);
 
   const chartData = {
-    labels: Array.from({ length: 24 }, (_, i) => `${i}시`),
+    labels,
     datasets: [
       {
-        label: '평균 방문 수',
-        data: hourlyData,
-        backgroundColor: '#60A5FA',
-        borderRadius: 6,
+        label: '방문량',
+        data: Array(24).fill(1), // 모든 바 크기를 동일하게
+        backgroundColor: hourlyData.map(val => getColor(val, maxCount)),
       }
     ]
   };
 
   const options = {
     responsive: true,
+    scales: {
+      r: {
+        ticks: { display: false },
+        grid: { circular: true },
+        pointLabels: {
+          display: true,
+          font: { size: 12 },
+        },
+      }
+    },
     plugins: {
       legend: { display: false },
       tooltip: {
         callbacks: {
-          label: (ctx: any) => `평균 방문 수: ${ctx.raw}`,
+          label: (context: any) => {
+            const hour = context.dataIndex;
+            const value = hourlyData[hour];
+            return `${hour}시 방문 수: ${value}`;
+          }
         }
-      }
-    },
-    scales: {
-      y: {
-        beginAtZero: true,
-        ticks: { stepSize: 1 }
       }
     }
   };
@@ -73,11 +84,11 @@ const AnalysisHourlyActivity: React.FC<Props> = ({ userId, period }) => {
   return (
     <div className="bg-white p-6 rounded-xl shadow-md mt-10">
       <h3 className="text-lg font-semibold mb-4">
-        ⏰ 시간대별 평균 방문량 ({period === '7days' ? '7일 기준' : period === '30days' ? '30일' : '90일'})
+        🕒 시간대별 방문 시계 (색상 강조)
       </h3>
-      <Bar data={chartData} options={options} />
+      <PolarArea data={chartData} options={options} />
     </div>
   );
 };
 
-export default AnalysisHourlyActivity;
+export default ClockActivityChart;
