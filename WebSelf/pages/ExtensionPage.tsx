@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PerDaysAnalysis from '../components/Analysis/PerDaysAnalysis';
 import CircleGraphAnalysis from '../components/Analysis/CircleGraphAnalysis';
 import AnalysisActivityChart from '../components/Analysis/AnalysisActivityChart'
+import AnalysisHourlyActivity from '../components/Analysis/AnalysisHourlyActivity';
 
 interface Props {
   userId: string;
@@ -44,6 +45,9 @@ const ExtensionHomePage = ({ userId }: Props) => {
           <CircleGraphAnalysis userId={userId} period="90days" />
         </div>
         <AnalysisActivityChart userId={userId} period="7days" />
+        <div className="mt-10">
+          <AnalysisHourlyActivity userId={userId} period="7days" />
+        </div>
       </section>
     </div>
   );
