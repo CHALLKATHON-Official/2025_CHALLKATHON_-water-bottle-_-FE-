@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PerDaysAnalysis from '../components/Analysis/PerDaysAnalysis';
 import CircleGraphAnalysis from '../components/Analysis/CircleGraphAnalysis';
 import ActivityChartAnalysis from '../components/Analysis/ActivityChartAnalysis';
-import { FaArrowUp } from 'react-icons/fa'; // 아이콘 추가
+import { FaArrowUp } from 'react-icons/fa';
 
 interface Props {
   userId: string;
@@ -13,12 +13,14 @@ const ExtensionHomePage = ({ userId }: Props) => {
   const [translateY, setTranslateY] = useState(0);
   const [showArrow, setShowArrow] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [showCharts, setShowCharts] = useState(false);
+
+  const chartRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
 
-      // 인트로 사라지게
       if (scrollY > 100) {
         setOpacity(0);
         setTranslateY(-50);
@@ -29,7 +31,6 @@ const ExtensionHomePage = ({ userId }: Props) => {
         setShowArrow(true);
       }
 
-      // 맨 위로 버튼 보이게
       if (scrollY > 400) {
         setShowScrollTop(true);
       } else {
@@ -37,8 +38,24 @@ const ExtensionHomePage = ({ userId }: Props) => {
       }
     };
 
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowCharts(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (chartRef.current) {
+      observer.observe(chartRef.current);
+    }
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (chartRef.current) observer.unobserve(chartRef.current);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -72,26 +89,34 @@ const ExtensionHomePage = ({ userId }: Props) => {
         )}
       </section>
 
-      {/* 분석 영역 */}
-      <section className="px-6 py-20 max-w-3xl mx-auto space-y-16">
-        <div className="space-y-4">
-          <h2 className="text-2xl font-bold">📊 웹 사용 습관 분석</h2>
+      {/* 분석 안내 영역 */}
+      <section className="px-6 py-20 max-w-3xl mx-auto">
+        <div className="space-y-4 min-h-[40vh] flex flex-col justify-center">
+          <h2 className="text-2xl text-blue-800 font-bold drop-shadow-lg">📊 웹 사용 습관 분석</h2>
           <p className="text-gray-700 text-lg">
             WebSelf가 수집한 브라우저 사용 기록을 기반으로 분석한 결과입니다.
           </p>
         </div>
-
-        <PerDaysAnalysis userId={userId} />
-
-        <div className="grid md:grid-cols-3 gap-x-60 gap-y-8 justify-items-center">
-          <CircleGraphAnalysis userId={userId} period="7days" />
-          <CircleGraphAnalysis userId={userId} period="30days" />
-          <CircleGraphAnalysis userId={userId} period="90days" />
-        </div>
-
-        <ActivityChartAnalysis userId={userId} period="7days" />
       </section>
 
+      {/* 분석 차트 영역 (스크롤 시 등장) */}
+      <div
+        ref={chartRef}
+        className={`transition-opacity duration-1000 ease-in-out ${showCharts ? 'opacity-100' : 'opacity-0'
+          }`}
+      >
+        <section className="px-6 pb-20 max-w-3xl mx-auto space-y-16">
+          <PerDaysAnalysis userId={userId} />
+
+          <div className="grid md:grid-cols-3 gap-x-60 gap-y-8 justify-items-center">
+            <CircleGraphAnalysis userId={userId} period="7days" />
+            <CircleGraphAnalysis userId={userId} period="30days" />
+            <CircleGraphAnalysis userId={userId} period="90days" />
+          </div>
+
+          <ActivityChartAnalysis userId={userId} period="7days" />
+        </section>
+      </div>
       {/* 맨 위로 버튼 */}
       {showScrollTop && (
         <button
