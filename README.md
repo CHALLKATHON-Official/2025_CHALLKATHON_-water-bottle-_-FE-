@@ -13,7 +13,7 @@
 | Frontend | Backend |
 |----------|---------|
 | React + Vite<br>TypeScript<br>Tailwind CSS | _Node(express.js)_ <br> Python |
-| 배포 : Vercel |
+| 배포 | Vercel |
 
 ---
 
