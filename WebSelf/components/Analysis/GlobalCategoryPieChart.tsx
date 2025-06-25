@@ -13,7 +13,7 @@ const GlobalCategoryPieChart = () => {
   const [data, setData] = useState<GlobalCategoryData[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/global-category-summary')
+    fetch('https://webself-be.onrender.com/api/global-category-summary')
       .then((res) => res.json())
       .then((json) => setData(json))
       .catch((err) => console.error('❌ 글로벌 카테고리 오류:', err));

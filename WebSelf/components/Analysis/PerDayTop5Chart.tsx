@@ -23,7 +23,7 @@ const PerDayTop5Chart: React.FC<Props> = ({ userId, period }) => {
   const [topSites, setTopSites] = useState<SiteEntry[]>([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/top-sites/${userId}/${period}`)
+    fetch(`https://webself-be.onrender.com/api/top-sites/${userId}/${period}`)
       .then(res => res.json())
       .then(setTopSites)
       .catch(console.error);

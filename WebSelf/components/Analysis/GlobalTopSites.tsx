@@ -23,7 +23,7 @@ const GlobalTopSitesBubbles = () => {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/global-top8')
+    fetch('https://webself-be.onrender.com/api/global-top8')
       .then(res => res.json())
       .then(data => setSites(data))
       .catch(err => console.error('❌ 글로벌 분석 오류:', err));

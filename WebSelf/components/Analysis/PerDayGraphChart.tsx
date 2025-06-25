@@ -42,7 +42,7 @@ const PerDayGraphChart: React.FC<Props> = ({ userId, period }) => {
   const [dailyData, setDailyData] = useState<DailyData[]>([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/activity/${userId}/${period}`)
+    fetch(`https://webself-be.onrender.com/api/activity/${userId}/${period}`)
       .then(res => res.json())
       .then(data => setDailyData(data))
       .catch(err => console.error('❌ 방문 통계 오류:', err));

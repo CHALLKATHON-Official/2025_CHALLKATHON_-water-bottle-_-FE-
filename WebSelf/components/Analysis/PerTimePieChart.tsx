@@ -29,7 +29,7 @@ const PerTimePieChart: React.FC<Props> = ({ userId, period }) => {
   const [hourlyData, setHourlyData] = useState<number[]>(Array(24).fill(0));
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/hourly-activity/${userId}/${period}`)
+    fetch(`https://webself-be.onrender.com/api/hourly-activity/${userId}/${period}`)
       .then(res => res.json())
       .then(data => {
         const visitCounts = Array(24).fill(0);
