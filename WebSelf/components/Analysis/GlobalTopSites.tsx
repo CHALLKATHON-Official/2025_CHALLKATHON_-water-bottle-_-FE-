@@ -5,14 +5,17 @@ interface SiteData {
   count: number;
 }
 
-const colors = ['#3B82F6', '#EF4444', '#10B981', '#8B5CF6', '#F59E0B'];
+const colors = ['#3B82F6', '#EF4444', '#10B981', '#8B5CF6', '#F59E0B', '#6366F1', '#EC4899', '#14B8A6'];
 
 const fixedPositions = [
   { left: '20%', top: '10%' },
   { left: '55%', top: '5%' },
   { left: '15%', top: '60%' },
   { left: '60%', top: '55%' },
-  { left: '35%', top: '35%' }
+  { left: '35%', top: '35%' },
+  { left: '75%', top: '25%' },
+  { left: '10%', top: '30%' },
+  { left: '45%', top: '70%' } 
 ];
 
 const GlobalTopSitesBubbles = () => {
@@ -20,7 +23,7 @@ const GlobalTopSitesBubbles = () => {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/global-top5')
+    fetch('http://localhost:3000/api/global-top8')
       .then(res => res.json())
       .then(data => setSites(data))
       .catch(err => console.error('❌ 글로벌 분석 오류:', err));
