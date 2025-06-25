@@ -1,4 +1,4 @@
-//import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ExtensionPage from './ExtensionPage';
 import NonExtensionPage from './NonExtensionPage';
 
