@@ -1,4 +1,3 @@
-import React from 'react';
 import TopButton from '../components/TopButton';
 import GlobalCategoryPieChart from '../components/Analysis/GlobalCategoryPieChart'; // 추가
 import GlobalUsagePieChart from '../components/Analysis/GlobalUsagePieChart';
