@@ -22,7 +22,7 @@ const HomePage = () => {
   const userId = getOrCreateUserId();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/check/${userId}/7days`)
+    fetch(`https://webself-be.onrender.com/api/check/${userId}/7days`)
       .then(res => res.json())
       .then(data => {
         setFadeOut(true);
@@ -66,9 +66,9 @@ const HomePage = () => {
   return (
     <div className={`transition-opacity duration-700 ${showPage ? 'opacity-100' : 'opacity-0'}`}>
       {isExtensionInstalled ? (
-        <NonExtensionPage userId={userId} />
+        <ExtensionPage userId={userId} />
       ) : (
-        <ExtensionPage />
+        <NonExtensionPage />
       )}
     </div>
   );

@@ -14,7 +14,7 @@ const GlobalUsagePieChart = () => {
   const [data, setData] = useState<GlobalAnalyzedData[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/global-visit-ratio')
+    fetch('https://webself-be.onrender.com/api/global-visit-ratio')
       .then(res => res.json())
       .then(setData)
       .catch(console.error);

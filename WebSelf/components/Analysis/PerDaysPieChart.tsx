@@ -25,7 +25,7 @@ const PerDaysPieChart: React.FC<Props> = ({ userId }) => {
     const fetchData = async () => {
       const results: Record<string, AnalyzedData[]> = {};
       for (const period of periods) {
-        const res = await fetch(`http://localhost:3000/api/summary/${userId}/${period}`);
+        const res = await fetch(`https://webself-be.onrender.com/api/summary/${userId}/${period}`);
         const json = await res.json();
         results[period] = json;
       }

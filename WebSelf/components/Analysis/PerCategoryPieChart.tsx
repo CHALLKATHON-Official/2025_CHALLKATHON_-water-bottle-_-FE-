@@ -18,7 +18,7 @@ const PerCategoryPieChart: React.FC<Props> = ({ userId, period }) => {
   const [dataMap, setDataMap] = useState<Record<string, number>>({});
 
   useEffect(() => {
-      fetch(`http://localhost:3000/api/category-summary/${userId}/${period}`)
+      fetch(`https://webself-be.onrender.com/api/category-summary/${userId}/${period}`)
       .then(res => res.json())
       .then(data => {
         setDataMap(data);
