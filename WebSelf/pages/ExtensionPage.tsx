@@ -7,6 +7,7 @@ import CategoryPieChart from '../components/Analysis/SiteCategoryChart';
 import TypingIntro from '../components/TypingIntro';
 import TopButton from '../components/TopButton';
 
+
 interface Props {
   userId: string;
 }

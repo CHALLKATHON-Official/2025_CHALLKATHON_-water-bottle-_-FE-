@@ -3,6 +3,7 @@ import GlobalIntro from '../components/GlobalIntro';
 import TopButton from '../components/TopButton';
 import GlobalTopSitesBubbles from '../components/Analysis/GlobalTopSites';
 import GlobalCategoryPieChart from '../components/Analysis/GlobalCategoryPieChart'; // 추가
+import GlobalUsagePieChart from '../components/Analysis/GlobalUsagePieChart';
 
 
 const GlobalPage = () => {
@@ -17,6 +18,7 @@ const GlobalPage = () => {
           </h2>
           <GlobalTopSitesBubbles />
           <GlobalCategoryPieChart /> {/* 추가된 카테고리 분석 차트 */}
+          <GlobalUsagePieChart />
       </section>
     </div>
   );
