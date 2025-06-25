@@ -89,8 +89,8 @@ const PerDayGraphChart: React.FC<Props> = ({ userId, period }) => {
   };
 
   return (
-  <div className="mt-10 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl">
-    <h3 className="mb-6 text-xl text-blue-800 drop-shadow-lg">
+  <div className="mt-10 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-100 to-white p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl">
+    <h3 className="mb-6 text-xl font-semibold text-blue-800 drop-shadow-lg">
       {period === '7days' ? '최근 7일간' : period === '30days' ? '30일간' : '90일간'} 활동량 변화
     </h3>
     <Line data={chartData} options={options} />

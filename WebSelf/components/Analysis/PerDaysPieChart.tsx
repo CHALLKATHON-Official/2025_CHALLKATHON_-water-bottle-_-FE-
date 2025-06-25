@@ -35,10 +35,12 @@ const PerDaysPieChart: React.FC<Props> = ({ userId }) => {
   }, [userId]);
 
   return (
-    <div className="px-6 py-16 max-w-6xl mx-auto">
-      <h2 className="text-2xl  text-center text-blue-800 drop-shadow-lg py-3">사이트별 방문 비율 분석</h2>
-      
-      <div className="grid md:grid-cols-3 gap-10">
+    <div className="px-6 py-16 max-w-7xl mx-auto bg-gradient-to-br from-blue-100 to-white duration-500 hover:scale-[1.01] hover:shadow-xl rounded-2xl shadow-lg">
+      <h2 className="text-xl text-center font-semibold text-blue-800 drop-shadow-lg mb-10">
+        사이트별 방문 비율 분석
+      </h2>
+
+      <div className="flex flex-col md:flex-row justify-center items-center gap-10">
         {periods.map((period) => {
           const entries = dataByPeriod[period] || [];
 
@@ -51,7 +53,7 @@ const PerDaysPieChart: React.FC<Props> = ({ userId }) => {
           }
 
           const labels = entries.map(e => e.domain);
-          const values = entries.map(e => e.visitPercent); // visitCount 대신 비율로 표시
+          const values = entries.map(e => e.visitPercent);
 
           const chartData = {
             labels,
@@ -59,8 +61,8 @@ const PerDaysPieChart: React.FC<Props> = ({ userId }) => {
               {
                 data: values,
                 backgroundColor: [
-                  '#4F46E5', '#60A5FA', '#A78BFA', '#F87171', '#FBBF24', '#34D399',
-                  '#818CF8', '#F472B6', '#2DD4BF', '#FCD34D'
+                  '#A5D8FF', '#B2F2BB', '#FFD6A5', '#FFC9C9', '#D0BFFF',
+                  '#FFE066', '#C5F6FA', '#F3D9FA', '#FABADA', '#B2F0E5'
                 ],
               }
             ]
@@ -73,15 +75,18 @@ const PerDaysPieChart: React.FC<Props> = ({ userId }) => {
           };
 
           return (
-            <div key={period} className="bg-white shadow rounded-lg p-4 flex flex-col items-center">
-              <h3 className="text-lg font-semibold mb-4">{titleMap[period]}</h3>
-              <div className="w-64 h-64">
-                <Pie data={chartData} options={{
-                  plugins: {
-                    legend: { position: 'bottom' },
-                    title: { display: false }
-                  }
-                }} />
+            <div key={period} className="flex flex-col items-center">
+              <h3 className="text-lg text-grey-800 mb-4">{titleMap[period]}</h3>
+              <div className="w-80 h-80">
+                <Pie
+                  data={chartData}
+                  options={{
+                    plugins: {
+                      legend: { position: 'bottom' },
+                      title: { display: false },
+                    }
+                  }}
+                />
               </div>
             </div>
           );

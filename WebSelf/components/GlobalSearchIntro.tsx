@@ -14,7 +14,7 @@ const messages = [
   { x: '50%', y: '10%', text: '🌍 전 세계의 클릭을 수집합니다...' },
 ];
 
-const GlobalPageIntro = () => {
+const GlobalSearchIntro = () => {
   const [step, setStep] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const { ref, inView } = useInView({ threshold: 0.7, triggerOnce: true });
@@ -102,4 +102,4 @@ const GlobalPageIntro = () => {
   );
 };
 
-export default GlobalPageIntro;
+export default GlobalSearchIntro;

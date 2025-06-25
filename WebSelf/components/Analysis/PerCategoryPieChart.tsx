@@ -38,16 +38,16 @@ const PerCategoryPieChart: React.FC<Props> = ({ userId, period }) => {
         label: '사용 시간 (ms)',
         data: values,
         backgroundColor: [
-          '#3B82F6', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6',
-          '#14B8A6', '#EC4899', '#F97316', '#6B7280'
+          '#A5D8FF', '#B2F2BB', '#FFD6A5', '#FFC9C9', '#D0BFFF',
+          '#FFE066', '#C5F6FA', '#F3D9FA', '#FABADA'
         ]
       }
     ]
   };
 
   return (
-    <div className="mt-10 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl">
-      <h3 className="text-lg text-blue-800 drop-shadow-lg mb-4">
+    <div className="mt-10 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-100 to-white p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl">
+      <h3 className="text-xl font-semibold text-blue-800 drop-shadow-lg mb-4">
         사이트 유형별 사용 시간 비중
       </h3>
       <Pie data={chartData} />
