@@ -4,6 +4,7 @@ import TopButton from '../components/TopButton';
 import GlobalTopSitesBubbles from '../components/Analysis/GlobalTopSites';
 import GlobalCategoryPieChart from '../components/Analysis/GlobalCategoryPieChart'; // 추가
 import GlobalUsagePieChart from '../components/Analysis/GlobalUsagePieChart';
+import GlobalPageIntro from '../components/GlobalPageIntro';
 
 
 const GlobalPage = () => {
@@ -11,14 +12,22 @@ const GlobalPage = () => {
     <div className="relative">
       <GlobalIntro />
       <TopButton />
-      {/* 본문 컨텐츠 */}
-      <section className="min-h-screen pt-[100vh] px-8 py-5">
-          <h2 className="text-2xl font-bold mb-4 text-blue-800">
-            다른 사람들은 어디를 많이 방문할까요?
-          </h2>
+      {/* 인트로 영역 */}
+      <section className="min-h-screen pt-[50vh] px-8 py-5">
+        <GlobalPageIntro />
+        {/* 본문 컨텐츠 */}
+        {/* top site bubble */}
+        <div>
           <GlobalTopSitesBubbles />
-          <GlobalCategoryPieChart /> {/* 추가된 카테고리 분석 차트 */}
+        </div>
+        {/* 전체 사이트 원 그래프 */}
+        <div>
           <GlobalUsagePieChart />
+        </div>
+        {/* 카테고리별 분류 */}
+        <div>
+          <GlobalCategoryPieChart />
+        </div>
       </section>
     </div>
   );

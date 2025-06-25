@@ -30,6 +30,7 @@ const GlobalIntro = () => {
 
       {/* 인트로 */}
       <div className="text-6xl text-blue-600 drop-shadow-lg mb-6">🌐</div>
+      <div className="text-3xl text-blue-700 drop-shadow-lg mt-7">글로벌 사용자 분석 페이지</div>
       <div className="transition-all duration-500 z-10">
         {/* 필요한 텍스트 또는 로고 추가 위치 */}
       </div>
