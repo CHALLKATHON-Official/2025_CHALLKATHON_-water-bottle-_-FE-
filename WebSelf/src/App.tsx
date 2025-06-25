@@ -2,10 +2,10 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './../pages/HomePage';
-import GlobalAnalysisPage from './../pages/GlobalAnalysisPage'; 
 import NotFoundPage from './../pages/NotFoundPage';
 import HomeLayout from './../layouts/HomeLayout';
 import ScrollTop from './../components/ScrollTop';
+import GlobalPage from './../pages/GlobalPage';
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
         {/* Layout이 필요한 페이지들 */}
         <Route element={<HomeLayout />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/global" element={<GlobalAnalysisPage />} /> 
+          <Route path="/global" element={<GlobalPage />} /> 
         </Route>
 
         {/* Layout이 없는 404 페이지 */}
