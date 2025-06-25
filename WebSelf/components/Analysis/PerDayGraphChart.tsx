@@ -38,7 +38,7 @@ interface DailyData {
   visitCount: number;
 }
 
-const ActivityChartAnalysis: React.FC<Props> = ({ userId, period }) => {
+const PerDayGraphChart: React.FC<Props> = ({ userId, period }) => {
   const [dailyData, setDailyData] = useState<DailyData[]>([]);
 
   useEffect(() => {
@@ -99,4 +99,4 @@ const ActivityChartAnalysis: React.FC<Props> = ({ userId, period }) => {
 
 };
 
-export default ActivityChartAnalysis;
+export default PerDayGraphChart;
