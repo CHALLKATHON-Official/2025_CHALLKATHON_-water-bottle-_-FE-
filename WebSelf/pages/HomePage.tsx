@@ -66,9 +66,9 @@ const HomePage = () => {
   return (
     <div className={`transition-opacity duration-700 ${showPage ? 'opacity-100' : 'opacity-0'}`}>
       {isExtensionInstalled ? (
-        <NonExtensionPage userId={userId} />
+        <ExtensionPage userId={userId} />
       ) : (
-        <ExtensionPage />
+        <NonExtensionPage />
       )}
     </div>
   );
