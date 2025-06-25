@@ -89,25 +89,25 @@ const ExtensionHomePage = ({ userId }: Props) => {
           <TypingIntro />
         </section>
 
-        {/* perday 원형 그래프  */}
+        {/* 날짜별 원형 그래프  */}
         <div className="mb-100 mt-100 fade-in-on-scroll" ref={chartRef}>
           <PerDaysPieChart userId={userId} />
         </div>
-        {/* perday 막대 그래프 */}
+        {/* 날짜별 top5 그래프 */}
         <div className="grid md:grid-cols-3 mb-100 mt-100 gap-x-60 gap-y-8 justify-items-center mb-24 fade-in-on-scroll">
           <PerDayTop5Chart userId={userId} period="7days" />
           <PerDayTop5Chart userId={userId} period="30days" />
           <PerDayTop5Chart userId={userId} period="90days" />
         </div>
-        {/* 날짜별 차트 분석 */}
+        {/* 날짜별 막대 그래프 */}
         <div className="mb-100 mt-100 fade-in-on-scroll">
         <PerDayGraphChart userId={userId} period="7days" />
         </div>
-        {/* 시간별 원형 분석 */}
+        {/* 시간별 원형 그래프 */}
         <div className="mb-100 mt-100 fade-in-on-scroll">
         <PerTimePieChart userId={userId} period="7days" />
         </div>
-        {/* 사이트 유형별 분석 */}
+        {/* 사이트 유형별 원형 그래프 */}
         <div className="mb-100 mt-100 fade-in-on-scroll ">
           <PerCategoryPieChart userId={userId} period="7days" />
         </div>

@@ -1,10 +1,10 @@
   import React from 'react';
   import GlobalIntro from '../components/GlobalIntro';
   import TopButton from '../components/TopButton';
-  import GlobalTopSitesBubbles from '../components/Analysis/GlobalTopSites';
   import GlobalCategoryPieChart from '../components/Analysis/GlobalCategoryPieChart'; // 추가
   import GlobalUsagePieChart from '../components/Analysis/GlobalUsagePieChart';
   import GlobalPageIntro from '../components/GlobalPageIntro';
+import GlobalTop8BubbleChart from '../components/Analysis/GlobalTop8BubbleChart';
 
 
   const GlobalPage = () => {
@@ -15,16 +15,15 @@
         {/* 인트로 영역 */}
         <section className="min-h-screen h-auto pt-[30vh] px-8 py-5">
           <GlobalPageIntro />
-          {/* 본문 컨텐츠 */}
-          {/* top site bubble */}
+          {/* top site bubble 그래프 */}
           <div className="mt-100">
-            <GlobalTopSitesBubbles />
+            <GlobalTop8BubbleChart />
           </div>
           {/* 전체 사이트 원 그래프 */}
           <div className="mt-100">
             <GlobalUsagePieChart />
           </div>
-          {/* 카테고리별 분류 */}
+          {/* 유형별 원 그래프 */}
           <div className="mt-100">
             <GlobalCategoryPieChart />
           </div>

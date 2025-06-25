@@ -18,7 +18,7 @@ const fixedPositions = [
   { left: '45%', top: '70%' } 
 ];
 
-const GlobalTopSitesBubbles = () => {
+const GlobalTop8BubbleChart = () => {
   const [sites, setSites] = useState<SiteData[]>([]);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 
@@ -103,4 +103,4 @@ const GlobalTopSitesBubbles = () => {
   );
 };
 
-export default GlobalTopSitesBubbles;
+export default GlobalTop8BubbleChart;
