@@ -30,7 +30,7 @@ const Navbar = () => {
         {/* 왼쪽 로고 */}
         <Link to="/" className="flex items-center space-x-2">
           <img src="/WebSelf_logo_nobg.png" alt="WebSelf Logo" className="h-8 w-8" />
-          <span className="text-xl font-bold font-bungee">WebSelf</span>
+          <span className="text-xl font-semi-bold font-bungee" style={{ fontFamily: `'Bungee', sans-serif` }}>WebSelf</span>
         </Link>
 
         {/* 오른쪽 버튼들 */}
@@ -38,17 +38,11 @@ const Navbar = () => {
           {/* 🔍 글로벌 분석 보기 버튼 */}
           {!isGlobalAnalysisPage && (
             <Link to="/global">
-              <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-4 py-2 rounded-lg transition">
+              <button className="bg-indigo-600 hover:bg-indigo-700 hover:scale-105 text-white font-medium px-4 py-2 rounded-lg transition">
                 🌍 글로벌 사용자 분석 보기
               </button>
             </Link>
           )}
-          {/* ✅ 확장 다운로드 버튼 */}
-          <Link to="/download">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition">
-              크롬 확장 다운로드
-            </button>
-          </Link>
         </div>
       </div>
     </nav>

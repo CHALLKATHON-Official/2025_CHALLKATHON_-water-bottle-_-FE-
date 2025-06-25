@@ -64,6 +64,7 @@ const ExtensionHomePage = ({ userId }: Props) => {
           style={{
             opacity,
             transform: `translateY(${translateY}px)`,
+            fontFamily: `'Bungee', sans-serif`,
           }}
         >
           <img
@@ -71,7 +72,7 @@ const ExtensionHomePage = ({ userId }: Props) => {
             alt="WebSelf Logo"
             className="w-40 h-40 mx-auto animate-float"
           />
-          <h1 className="text-6xl font-bold font-bungee text-blue-600 drop-shadow-lg">WebSelf</h1>
+          <h1 className="text-6xl font-semi-bold text-blue-600 drop-shadow-lg">WebSelf</h1>
           <br />
           <h2 className="text-2xl text-blue-800 drop-shadow-lg"> 환영합니다! </h2>
           <br />
@@ -107,7 +108,7 @@ const ExtensionHomePage = ({ userId }: Props) => {
         <ClockActivityChart userId={userId} period="7days" />
         </div>
         {/* 사이트 유형별 분석 */}
-        <div className="mb-100 mt-100 fade-in-on-scroll">
+        <div className="mb-100 mt-100 fade-in-on-scroll ">
           <CategoryPieChart userId={userId} period="7days" />
         </div>
       </section>

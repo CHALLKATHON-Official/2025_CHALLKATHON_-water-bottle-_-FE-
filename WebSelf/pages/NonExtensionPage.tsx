@@ -27,7 +27,7 @@ const NonExtensionHomePage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" style={{ fontFamily: `'Bungee', sans-serif` }}>
       <section className="h-screen flex flex-col items-center justify-center text-center relative bg-gradient-to-b from-blue-100 to-white overflow-hidden">
         <div
           className="transition-all duration-500"
@@ -41,7 +41,7 @@ const NonExtensionHomePage = () => {
             alt="WebSelf Logo"
             className="w-40 h-40 mx-auto animate-float"
           />
-          <h1 className="text-6xl font-bold text-blue-600 drop-shadow-lg">WebSelf</h1>
+          <h1 className="text-6xl font-semi-bold text-blue-600 drop-shadow-lg">WebSelf</h1>
           <br />
           <h2 className="text-2xl text-blue-800 drop-shadow-lg"> 환영합니다! </h2>
           <br />
@@ -62,7 +62,7 @@ const NonExtensionHomePage = () => {
           설치 후 자동으로 분석이 시작돼요!
         </p>
         <Link to="/download">
-          <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bungee text-xl tracking-wide px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:animate-float">
+          <button className="bg-indigo-600 hover:bg-indigo-700 text-white text-xl tracking-wide px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:animate-float">
             ✨ 크롬 익스텐션 다운로드 ✨
           </button>
         </Link>
