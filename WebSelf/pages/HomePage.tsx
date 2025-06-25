@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+//import React, { useEffect, useState } from 'react';
 import ExtensionPage from './ExtensionPage';
 import NonExtensionPage from './NonExtensionPage';
 
@@ -9,13 +9,14 @@ const generateUUID = () => {
 };
 
 const getOrCreateUserId = (): string => {
-  let userId = localStorage.getItem('userId');
+  let userId = localStorage.getItem("userId"); // let으로 변경
   if (!userId) {
     userId = generateUUID();
-    localStorage.setItem('userId', userId);
+    localStorage.setItem("userId", userId);
   }
   return userId;
 };
+
 
 const HomePage = () => {
   const [isExtensionInstalled, setIsExtensionInstalled] = useState<boolean | null>(null);
