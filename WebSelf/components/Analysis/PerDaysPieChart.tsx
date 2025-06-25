@@ -18,7 +18,7 @@ interface Props {
 
 const periods: ("7days" | "30days" | "90days")[] = ["7days", "30days", "90days"];
 
-const PerDaysAnalysis: React.FC<Props> = ({ userId }) => {
+const PerDaysPieChart: React.FC<Props> = ({ userId }) => {
   const [dataByPeriod, setDataByPeriod] = useState<Record<string, AnalyzedData[]>>({});
 
   useEffect(() => {
@@ -91,4 +91,4 @@ const PerDaysAnalysis: React.FC<Props> = ({ userId }) => {
   );
 };
 
-export default PerDaysAnalysis;
+export default PerDaysPieChart;

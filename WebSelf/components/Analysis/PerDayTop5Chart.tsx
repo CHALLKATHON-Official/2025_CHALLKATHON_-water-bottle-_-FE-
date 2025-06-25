@@ -19,7 +19,7 @@ const titleMap = {
 
 const colors = ["#6366F1", "#3B82F6", "#10B981", "#F59E0B", "#EF4444"];
 
-const AnalysisTopList: React.FC<Props> = ({ userId, period }) => {
+const PerDayTop5Chart: React.FC<Props> = ({ userId, period }) => {
   const [topSites, setTopSites] = useState<SiteEntry[]>([]);
 
   useEffect(() => {
@@ -58,4 +58,4 @@ const AnalysisTopList: React.FC<Props> = ({ userId, period }) => {
   );
 };
 
-export default AnalysisTopList;
+export default PerDayTop5Chart;

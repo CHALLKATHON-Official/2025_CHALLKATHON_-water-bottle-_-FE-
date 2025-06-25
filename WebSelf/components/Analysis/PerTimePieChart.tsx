@@ -25,7 +25,7 @@ const getColor = (value: number, max: number): string => {
   return '#FEE2E2';
 };
 
-const ClockActivityChart: React.FC<Props> = ({ userId, period }) => {
+const PerTimePieChart: React.FC<Props> = ({ userId, period }) => {
   const [hourlyData, setHourlyData] = useState<number[]>(Array(24).fill(0));
 
   useEffect(() => {
@@ -91,4 +91,4 @@ const ClockActivityChart: React.FC<Props> = ({ userId, period }) => {
   );
 };
 
-export default ClockActivityChart;
+export default PerTimePieChart;

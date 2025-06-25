@@ -1,4 +1,3 @@
-// CategoryPieChart.tsx
 import React, { useEffect, useState } from 'react';
 import { Pie } from 'react-chartjs-2';
 import {
@@ -15,7 +14,7 @@ interface Props {
   period: '7days' | '30days' | '90days';
 }
 
-const CategoryPieChart: React.FC<Props> = ({ userId, period }) => {
+const PerCategoryPieChart: React.FC<Props> = ({ userId, period }) => {
   const [dataMap, setDataMap] = useState<Record<string, number>>({});
 
   useEffect(() => {
@@ -56,4 +55,4 @@ const CategoryPieChart: React.FC<Props> = ({ userId, period }) => {
   );
 };
 
-export default CategoryPieChart;
+export default PerCategoryPieChart;

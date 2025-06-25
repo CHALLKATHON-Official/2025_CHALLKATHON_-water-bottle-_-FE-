@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import PerDaysAnalysis from '../components/Analysis/PerDaysAnalysis';
-import CircleGraphAnalysis from '../components/Analysis/CircleGraphAnalysis';
-import ActivityChartAnalysis from '../components/Analysis/ActivityChartAnalysis';
-import ClockActivityChart from '../components/Analysis/AnalysisHourlyActivity';
-import CategoryPieChart from '../components/Analysis/SiteCategoryChart';
 import TypingIntro from '../components/TypingIntro';
 import TopButton from '../components/TopButton';
+import PerCategoryPieChart from '../components/Analysis/PerCategoryPieChart';
+import PerTimePieChart from '../components/Analysis/PerTimePieChart';
+import PerDayGraphChart from '../components/Analysis/PerDayGraphChart';
+import PerDayTop5Chart from '../components/Analysis/PerDayTop5Chart';
+import PerDaysPieChart from '../components/Analysis/PerDaysPieChart';
 
 interface Props {
   userId: string;
@@ -84,32 +84,32 @@ const ExtensionHomePage = ({ userId }: Props) => {
       </section>
 
       <section className="px-6 py-20 max-w-3xl mx-auto">
-        {/* 분석 인트로 섹션 */}
+        {/* 분석 인트로  */}
         <section className="h-screen relative mb-100 mt-100 fade-in-on-scroll">
           <TypingIntro />
         </section>
 
-        {/* 원형 그래프 분석 */}
+        {/* perday 원형 그래프  */}
         <div className="mb-100 mt-100 fade-in-on-scroll" ref={chartRef}>
-          <PerDaysAnalysis userId={userId} />
+          <PerDaysPieChart userId={userId} />
         </div>
-        {/* 막대 그래프 분석 */}
+        {/* perday 막대 그래프 */}
         <div className="grid md:grid-cols-3 mb-100 mt-100 gap-x-60 gap-y-8 justify-items-center mb-24 fade-in-on-scroll">
-          <CircleGraphAnalysis userId={userId} period="7days" />
-          <CircleGraphAnalysis userId={userId} period="30days" />
-          <CircleGraphAnalysis userId={userId} period="90days" />
+          <PerDayTop5Chart userId={userId} period="7days" />
+          <PerDayTop5Chart userId={userId} period="30days" />
+          <PerDayTop5Chart userId={userId} period="90days" />
         </div>
         {/* 날짜별 차트 분석 */}
         <div className="mb-100 mt-100 fade-in-on-scroll">
-        <ActivityChartAnalysis userId={userId} period="7days" />
+        <PerDayGraphChart userId={userId} period="7days" />
         </div>
         {/* 시간별 원형 분석 */}
         <div className="mb-100 mt-100 fade-in-on-scroll">
-        <ClockActivityChart userId={userId} period="7days" />
+        <PerTimePieChart userId={userId} period="7days" />
         </div>
         {/* 사이트 유형별 분석 */}
         <div className="mb-100 mt-100 fade-in-on-scroll ">
-          <CategoryPieChart userId={userId} period="7days" />
+          <PerCategoryPieChart userId={userId} period="7days" />
         </div>
       </section>
 
