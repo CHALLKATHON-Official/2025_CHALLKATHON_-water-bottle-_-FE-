@@ -2,6 +2,7 @@ import React from 'react';
 import GlobalIntro from '../components/GlobalIntro';
 import TopButton from '../components/TopButton';
 import GlobalTopSitesBubbles from '../components/Analysis/GlobalTopSites';
+import GlobalCategoryPieChart from '../components/Analysis/GlobalCategoryPieChart'; // 추가
 
 
 const GlobalPage = () => {
@@ -15,6 +16,7 @@ const GlobalPage = () => {
             다른 사람들은 어디를 많이 방문할까요?
           </h2>
           <GlobalTopSitesBubbles />
+          <GlobalCategoryPieChart /> {/* 추가된 카테고리 분석 차트 */}
       </section>
     </div>
   );
