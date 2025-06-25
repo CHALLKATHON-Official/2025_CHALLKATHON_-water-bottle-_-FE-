@@ -41,8 +41,8 @@ const GlobalUsagePieChart = () => {
       <h2 className="text-xl font-bold text-center text-blue-800 drop-shadow-lg mb-4">
         전 세계 사용자 사이트 이용 비율
       </h2>
-      <div className="bg-white shadow rounded-lg p-6 flex flex-col items-center">
-        <div className="w-72 h-72">
+      <div className="mt-10 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl">
+        <div className="w-90 h-90">
           <Pie
             data={chartData}
             options={{

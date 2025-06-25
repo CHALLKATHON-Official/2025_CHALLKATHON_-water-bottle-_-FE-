@@ -43,8 +43,8 @@ const GlobalCategoryPieChart = () => {
       <h2 className="text-2xl text-center text-blue-800 drop-shadow-lg py-3">
         다른 사용자들의 카테고리별 평균 사용 시간 비율
       </h2>
-      <div className="bg-white shadow rounded-lg p-6 flex flex-col items-center">
-        <div className="w-72 h-72">
+      <div className="mt-10 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl">
+        <div className="w-90 h-90">
           <Pie data={chartData} options={{
             plugins: {
               legend: { position: 'bottom' },
