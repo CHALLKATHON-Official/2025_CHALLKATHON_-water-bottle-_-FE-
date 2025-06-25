@@ -7,7 +7,6 @@ import CategoryPieChart from '../components/Analysis/SiteCategoryChart';
 import TypingIntro from '../components/TypingIntro';
 import TopButton from '../components/TopButton';
 
-
 interface Props {
   userId: string;
 }
@@ -70,13 +69,13 @@ const ExtensionHomePage = ({ userId }: Props) => {
           <img
             src="/WebSelf_logo_nobg.png"
             alt="WebSelf Logo"
-            className="w-40 h-40 ml-33 animate-float"
+            className="w-40 h-40 mx-auto animate-float"
           />
           <h1 className="text-6xl font-bold font-bungee text-blue-600 drop-shadow-lg">WebSelf</h1>
           <br />
-          <h2 className="text-2xl text-blue-800 drop-shadow-lg">-웹 사용 습관 분석 페이지에 오신 것을-</h2>
+          <h2 className="text-2xl text-blue-800 drop-shadow-lg"> 환영합니다! </h2>
           <br />
-          <h2 className="text-4xl text-blue-800 drop-shadow-lg">- 환영합니다! -</h2>
+          <h2 className="text-4xl text-blue-800 drop-shadow-lg"> 당신의 웹에서의 시간을 분석해 보세요! </h2>
         </div>
         {showArrow && (
           <div className="absolute bottom-10 animate-bounce text-gray-400 text-3xl">ˬ</div>
