@@ -36,7 +36,7 @@ const GlobalPage = () => {
       <TopButton />
       {/* 인트로 영역 */}
       <section className="min-h-screen h-auto pt-[30vh] px-8 py-5">
-        <div className="mb-20">
+        <div className="mb-60">
           <GlobalSearchIntro />
         </div>
         {/* top site bubble 그래프 */}
