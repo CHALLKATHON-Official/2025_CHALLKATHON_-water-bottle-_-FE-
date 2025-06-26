@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import  { useEffect, useRef, useState } from 'react';
 import TypingIntro from '../components/TypingIntro';
 import TopButton from '../components/TopButton';
 import PerCategoryPieChart from '../components/Analysis/PerCategoryPieChart';

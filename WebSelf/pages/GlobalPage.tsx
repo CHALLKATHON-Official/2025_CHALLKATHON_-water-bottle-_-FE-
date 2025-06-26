@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import TopButton from '../components/TopButton';
 import GlobalCategoryPieChart from '../components/Analysis/GlobalCategoryPieChart';
 import GlobalUsagePieChart from '../components/Analysis/GlobalUsagePieChart';

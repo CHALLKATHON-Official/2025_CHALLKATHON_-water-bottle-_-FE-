@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 
 interface SiteData {
   site: string;
@@ -25,17 +25,20 @@ const GlobalTop8BubbleChart = () => {
   useEffect(() => {
     fetch('https://webself-be.onrender.com/api/global-top8')
       .then(res => res.json())
-      .then(data => setSites(data))
+      .then(data => {
+        setSites(data);
+      })
       .catch(err => console.error('❌ 글로벌 분석 오류:', err));
   }, []);
 
-  const counts = sites.map(site => site.count).filter(c => typeof c === 'number' && !isNaN(c));
+  const counts = sites.map(site => Number(site.count)).filter(c => !isNaN(c));
   const maxCount = counts.length > 0 ? Math.max(...counts) : 1;
 
   return (
     <div className="relative h-[500px] w-full">
       {sites.map((site, index) => {
-        const safeCount = typeof site.count === 'number' && !isNaN(site.count) ? site.count : 1;
+        const rawCount = Number(site.count);  // ⭐ 숫자 변환
+        const safeCount = !isNaN(rawCount) && rawCount > 0 ? rawCount : 1;
         const radius = 60 + Math.pow(safeCount / maxCount, 1.2) * 140;
 
         const position = fixedPositions[index] || { left: '0%', top: '0%' };

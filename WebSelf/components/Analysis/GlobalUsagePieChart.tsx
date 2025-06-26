@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from 'chart.js';
 
@@ -14,14 +14,29 @@ const GlobalUsagePieChart = () => {
   const [data, setData] = useState<GlobalAnalyzedData[]>([]);
 
   useEffect(() => {
-    fetch('https://webself-be.onrender.com/api/global-visit-ratio')
-      .then(res => res.json())
-      .then(setData)
-      .catch(console.error);
-  }, []);
+  fetch('https://webself-be.onrender.com/api/global-visit-ratio')
+    .then(res => res.json())
+    .then(json => {
+      console.log('🔥 raw data:', json);
+      const test = json.map(d => ({
+        domain: d.domain,
+        visitCount: d.visitCount,
+        visitPercent: d.visitPercent,
+        type: typeof d.visitPercent,
+        parsed: Number(d.visitPercent),
+      }));
+      console.table(test);
+      setData(json);
+    })
+    .catch(console.error);
+}, []);
 
   const labels = data.map(d => d.domain);
-  const values = data.map(d => d.visitPercent);
+  const values = data.map(d => Number(d.visitPercent) * 100);
+  console.log('🔥 raw data:', data);
+
+  console.log('📊 labels:', labels);
+  console.log('📊 values:', values);  
 
   const chartData = {
     labels,
@@ -42,7 +57,7 @@ const GlobalUsagePieChart = () => {
         전 세계 사용자 사이트 이용 비율
       </h2>
       <div className="mt-10 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl">
-        <div className="w-90 h-90">
+        <div className="w-[400px] h-[400px] mx-auto">
           <Pie
             data={chartData}
             options={{

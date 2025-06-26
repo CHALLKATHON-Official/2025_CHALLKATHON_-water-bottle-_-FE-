@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from 'chart.js';
 
@@ -23,7 +23,7 @@ const GlobalCategoryPieChart = () => {
 
   const total = data.reduce((sum, item) => sum + item.totalTimeMs, 0);
   const labels = data.map((d) => d.category);
-  const values = data.map((d) => ((d.totalTimeMs / total) * 100).toFixed(2));
+  const values = data.map((d) => parseFloat(((d.totalTimeMs / total) * 100).toFixed(2)));
 
   const chartData = {
     labels,
@@ -44,7 +44,7 @@ const GlobalCategoryPieChart = () => {
         다른 사용자들의 카테고리별 평균 사용 시간 비율
       </h2>
       <div className="mt-10 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl">
-        <div className="w-90 h-90">
+        <div className="w-[400px] h-[400px] mx-auto">
           <Pie data={chartData} options={{
             plugins: {
               legend: { position: 'bottom' },

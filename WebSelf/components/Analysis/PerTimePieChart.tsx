@@ -3,7 +3,7 @@ import {
   Chart as ChartJS,
   ArcElement,
   Tooltip,
-  Legend,
+  Legend, 
   RadialLinearScale
 } from 'chart.js';
 import { PolarArea } from 'react-chartjs-2';
