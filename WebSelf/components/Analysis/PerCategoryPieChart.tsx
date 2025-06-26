@@ -18,7 +18,7 @@ const PerCategoryPieChart: React.FC<Props> = ({ userId, period }) => {
   const [dataMap, setDataMap] = useState<Record<string, number>>({});
 
   useEffect(() => {
-      fetch(`https://webself-be.onrender.com/api/category-summary/${userId}/${period}`)
+    fetch(`https://webself-be.onrender.com/api/category-summary/${userId}/${period}`)
       .then(res => res.json())
       .then(data => {
         setDataMap(data);
@@ -46,11 +46,13 @@ const PerCategoryPieChart: React.FC<Props> = ({ userId, period }) => {
   };
 
   return (
-    <div className="mt-10 w-[700px] mx-auto rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-100 to-white p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl">
-      <h3 className="text-xl font-bold text-blue-800 drop-shadow-lg mb-4">
-        사이트 유형별 사용 시간 비중
-      </h3>
-      <Pie data={chartData} />
+    <div className="px-6 py-12 max-w-3xl mx-auto">
+      <div className="mt-10 mx-auto rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-100 to-white p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl">
+        <h3 className="text-xl font-bold text-blue-800 drop-shadow-lg mb-4">
+          사이트 유형별 사용 시간 비중
+        </h3>
+        <Pie data={chartData} />
+      </div>
     </div>
   );
 };
