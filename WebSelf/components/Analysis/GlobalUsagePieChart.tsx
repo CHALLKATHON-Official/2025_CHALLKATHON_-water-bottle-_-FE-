@@ -1,4 +1,4 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from 'chart.js';
 
@@ -14,29 +14,29 @@ const GlobalUsagePieChart = () => {
   const [data, setData] = useState<GlobalAnalyzedData[]>([]);
 
   useEffect(() => {
-  fetch('https://webself-be.onrender.com/api/global-visit-ratio')
-    .then(res => res.json())
-    .then(json => {
-      console.log('🔥 raw data:', json);
-      const test = json.map(d => ({
-        domain: d.domain,
-        visitCount: d.visitCount,
-        visitPercent: d.visitPercent,
-        type: typeof d.visitPercent,
-        parsed: Number(d.visitPercent),
-      }));
-      console.table(test);
-      setData(json);
-    })
-    .catch(console.error);
-}, []);
+    fetch('https://webself-be.onrender.com/api/global-visit-ratio')
+      .then(res => res.json())
+      .then(json => {
+        console.log('🔥 raw data:', json);
+        const test = json.map(d => ({
+          domain: d.domain,
+          visitCount: d.visitCount,
+          visitPercent: d.visitPercent,
+          type: typeof d.visitPercent,
+          parsed: Number(d.visitPercent),
+        }));
+        console.table(test);
+        setData(json);
+      })
+      .catch(console.error);
+  }, []);
 
   const labels = data.map(d => d.domain);
   const values = data.map(d => Number(d.visitPercent) * 100);
   console.log('🔥 raw data:', data);
 
   console.log('📊 labels:', labels);
-  console.log('📊 values:', values);  
+  console.log('📊 values:', values);
 
   const chartData = {
     labels,
@@ -44,8 +44,8 @@ const GlobalUsagePieChart = () => {
       {
         data: values,
         backgroundColor: [
-          '#4F46E5', '#60A5FA', '#A78BFA', '#F87171', '#FBBF24',
-          '#34D399', '#818CF8', '#F472B6', '#2DD4BF', '#FCD34D'
+          '#A5D8FF', '#B2F2BB', '#FFD6A5', '#FFC9C9', '#D0BFFF',
+          '#FFE066', '#C5F6FA', '#F3D9FA', '#FABADA', '#B2F0E5'
         ],
       },
     ],
@@ -53,11 +53,11 @@ const GlobalUsagePieChart = () => {
 
   return (
     <div className="px-6 py-12 max-w-3xl mx-auto">
-      <h2 className="text-xl font-bold text-center text-blue-800 drop-shadow-lg mb-4">
-        전 세계 사용자 사이트 이용 비율
-      </h2>
-      <div className="mt-10 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl">
-        <div className="w-[400px] h-[400px] mx-auto">
+      <div className="mt-10 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-100 to-white p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl">
+        <h2 className="text-xl font-bold text-center text-blue-800 drop-shadow-lg mb-4">
+          전 세계 사용자 사이트 이용 비율
+        </h2>
+        <div className="w-[500px] h-[500px] mx-auto">
           <Pie
             data={chartData}
             options={{

@@ -1,10 +1,10 @@
+import React, { useEffect } from 'react';
 import TopButton from '../components/TopButton';
 import GlobalCategoryPieChart from '../components/Analysis/GlobalCategoryPieChart';
 import GlobalUsagePieChart from '../components/Analysis/GlobalUsagePieChart';
 import GlobalTop8BubbleChart from '../components/Analysis/GlobalTop8BubbleChart';
 import GlobalIntro from './../components/GlobalIntro';
 import GlobalSearchIntro from '../components/GlobalSearchIntro';
-
 
 const GlobalPage = () => {
   useEffect(() => {

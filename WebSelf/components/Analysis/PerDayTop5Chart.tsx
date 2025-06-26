@@ -31,7 +31,7 @@ const PerDayTop5Chart: React.FC<Props> = ({ userId, period }) => {
 
   return (
     <div className="bg-gradient-to-br from-blue-100 to-white shadow-xl rounded-2xl p-6 duration-500 hover:scale-[1.01] hover:shadow-xl w-[300px] min-w-[280px]">
-      <h3 className="text-lg font-semibold text-blue-800 drop-shadow-lg mb-6">{titleMap[period]}</h3>
+      <h3 className="text-lg font-bold text-blue-800 drop-shadow-lg mb-6">{titleMap[period]}</h3>
       {topSites.map((site, idx) => (
         <div key={idx} className="mb-5">
           <div className="flex justify-between items-center mb-1">

@@ -83,7 +83,7 @@ const ExtensionHomePage = ({ userId }: Props) => {
         )}
       </section>
 
-      <section className="px-6 py-20 max-w-5xl mx-auto">
+      <section className="relative">
         {/* 분석 인트로  */}
         <section className="h-screen w-[700px] mx-auto relative mb-100 mt-100 fade-in-on-scroll">
           <TypingIntro/>
@@ -94,7 +94,7 @@ const ExtensionHomePage = ({ userId }: Props) => {
           <PerDaysPieChart userId={userId} />
         </div>
         {/* 날짜별 top5 그래프 */}
-        <div className="grid md:grid-cols-3 mb-150 mt-150 gap-x-40 gap-y-8 justify-items-center mb-24 fade-in-on-scroll">
+        <div className="grid md:grid-cols-3 mb-150 mt-150 gap-x-4 gap-y-8 justify-items-center fade-in-on-scroll">
           <PerDayTop5Chart userId={userId} period="7days" />
           <PerDayTop5Chart userId={userId} period="30days" />
           <PerDayTop5Chart userId={userId} period="90days" />

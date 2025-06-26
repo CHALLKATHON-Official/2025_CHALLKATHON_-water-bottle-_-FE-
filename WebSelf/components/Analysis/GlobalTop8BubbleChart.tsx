@@ -1,11 +1,12 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface SiteData {
   site: string;
   count: number;
 }
 
-const colors = ['#3B82F6', '#EF4444', '#10B981', '#8B5CF6', '#F59E0B', '#6366F1', '#EC4899', '#14B8A6'];
+const colors = ['#A5D8FF', '#B2F2BB', '#FFD6A5', '#FFC9C9', '#D0BFFF',
+  '#FFE066', '#C5F6FA', '#F3D9FA'];
 
 const fixedPositions = [
   { left: '20%', top: '10%' },
@@ -15,7 +16,7 @@ const fixedPositions = [
   { left: '35%', top: '35%' },
   { left: '75%', top: '25%' },
   { left: '10%', top: '30%' },
-  { left: '45%', top: '70%' } 
+  { left: '45%', top: '70%' }
 ];
 
 const GlobalTop8BubbleChart = () => {
@@ -67,7 +68,7 @@ const GlobalTop8BubbleChart = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'white',
+              color: 'indigo',
               fontWeight: 'bold',
               fontSize: '0.8rem',
               boxShadow: '0 2px 10px rgba(0,0,0,0.25)',

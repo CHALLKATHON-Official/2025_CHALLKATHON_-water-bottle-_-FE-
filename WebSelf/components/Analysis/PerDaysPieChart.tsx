@@ -35,8 +35,8 @@ const PerDaysPieChart: React.FC<Props> = ({ userId }) => {
   }, [userId]);
 
   return (
-    <div className="px-6 py-16 mx-auto bg-gradient-to-br from-blue-100 to-white duration-500 hover:scale-[1.01] hover:shadow-xl rounded-2xl shadow-lg">
-      <h2 className="text-xl text-center font-semibold text-blue-800 drop-shadow-lg mb-10">
+    <div className="px-6 py-16 w-[1000px] h-[600px] mx-auto mx-auto bg-gradient-to-br from-blue-100 to-white duration-500 hover:scale-[1.01] hover:shadow-xl rounded-2xl shadow-lg">
+      <h2 className="text-xl text-center font-bold text-blue-800 drop-shadow-lg mb-10">
         사이트별 방문 비율 분석
       </h2>
 

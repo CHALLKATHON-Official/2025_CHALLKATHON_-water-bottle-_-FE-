@@ -47,7 +47,7 @@ const PerCategoryPieChart: React.FC<Props> = ({ userId, period }) => {
 
   return (
     <div className="mt-10 w-[700px] mx-auto rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-100 to-white p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl">
-      <h3 className="text-xl font-semibold text-blue-800 drop-shadow-lg mb-4">
+      <h3 className="text-xl font-bold text-blue-800 drop-shadow-lg mb-4">
         사이트 유형별 사용 시간 비중
       </h3>
       <Pie data={chartData} />

@@ -1,4 +1,4 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from 'chart.js';
 
@@ -31,8 +31,8 @@ const GlobalCategoryPieChart = () => {
       {
         data: values,
         backgroundColor: [
-          '#4F46E5', '#60A5FA', '#A78BFA', '#F87171', '#FBBF24', '#34D399',
-          '#818CF8', '#F472B6', '#2DD4BF', '#FCD34D'
+          '#A5D8FF', '#B2F2BB', '#FFD6A5', '#FFC9C9', '#D0BFFF',
+          '#FFE066', '#C5F6FA', '#F3D9FA', '#FABADA', '#B2F0E5'
         ],
       }
     ]
@@ -40,11 +40,11 @@ const GlobalCategoryPieChart = () => {
 
   return (
     <div className="px-6 py-16 max-w-3xl mx-auto">
-      <h2 className="text-2xl text-center text-blue-800 drop-shadow-lg py-3">
-        다른 사용자들의 카테고리별 평균 사용 시간 비율
-      </h2>
-      <div className="mt-10 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl">
-        <div className="w-[400px] h-[400px] mx-auto">
+      <div className="mt-10 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-100 to-white p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl">
+        <h2 className="text-xl font-bold text-center text-blue-800 drop-shadow-lg py-3">
+          다른 사용자들의 카테고리별 평균 사용 시간 비율
+        </h2>
+        <div className="w-[500px] h-[500px] mx-auto">
           <Pie data={chartData} options={{
             plugins: {
               legend: { position: 'bottom' },
