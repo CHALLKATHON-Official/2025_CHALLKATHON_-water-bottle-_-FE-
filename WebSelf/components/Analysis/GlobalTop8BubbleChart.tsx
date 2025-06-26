@@ -26,7 +26,6 @@ const GlobalTop8BubbleChart = () => {
     fetch('https://webself-be.onrender.com/api/global-top8')
       .then(res => res.json())
       .then(data => {
-        console.log('📊 글로벌 Top8 응답:', data); // 👈 이거 추가!
         setSites(data);
       })
       .catch(err => console.error('❌ 글로벌 분석 오류:', err));
@@ -38,7 +37,8 @@ const GlobalTop8BubbleChart = () => {
   return (
     <div className="relative h-[500px] w-full">
       {sites.map((site, index) => {
-        const safeCount = typeof site.count === 'number' && !isNaN(site.count) ? site.count : 1;
+        const rawCount = Number(site.count);  // ⭐ 숫자 변환
+        const safeCount = !isNaN(rawCount) && rawCount > 0 ? rawCount : 1;
         const radius = 60 + Math.pow(safeCount / maxCount, 1.2) * 140;
 
         const position = fixedPositions[index] || { left: '0%', top: '0%' };
