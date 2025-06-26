@@ -27,12 +27,18 @@ const PerDaysPieChart: React.FC<Props> = ({ userId }) => {
       for (const period of periods) {
         const res = await fetch(`https://webself-be.onrender.com/api/summary/${userId}/${period}`);
         const json = await res.json();
-        results[period] = json;
+        console.log(`🧪 ${period} 데이터`, json); // ← 이거 추가!
+        results[period] = json.map((d: any) => ({
+          ...d,
+          visitPercent: d.visitPercent ?? 0,
+          visitCount: d.visitCount ?? 0,
+        }));
       }
       setDataByPeriod(results);
     };
     fetchData();
   }, [userId]);
+
 
   return (
     <div className="px-6 py-16 w-[1000px] h-[600px] mx-auto mx-auto bg-gradient-to-br from-blue-100 to-white duration-500 hover:scale-[1.01] hover:shadow-xl rounded-2xl shadow-lg">
@@ -54,6 +60,7 @@ const PerDaysPieChart: React.FC<Props> = ({ userId }) => {
 
           const labels = entries.map(e => e.domain);
           const values = entries.map(e => e.visitPercent);
+          console.log('📊', period, '퍼센트값:', values);
 
           const chartData = {
             labels,
