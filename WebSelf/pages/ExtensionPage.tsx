@@ -66,14 +66,14 @@ const ExtensionHomePage = ({ userId }: Props) => {
           <TypingIntro />
         </section>
         <div>
-          <h2 className="text-3xl font-semibold text-center text-gray-800 tracking-tight leading-snug mb-4">
+          <h2 className="text-3xl font-semibold text-center text-gray-800 tracking-tight leading-snug mb-4 fade-in-on-scroll">
             어떤 사이트를 가장 많이 방문했을까요?
           </h2>
         </div>
         <div className="mb-100 mt-10 fade-in-on-scroll" ref={chartRef}>
           <PerDaysPieChart userId={userId} />
         </div>
-        <h2 className="text-3xl font-semibold text-center text-gray-800 tracking-tight leading-snug mb-4">
+        <h2 className="text-3xl font-semibold text-center text-gray-800 tracking-tight leading-snug mb-4 fade-in-on-scroll">
           방문 횟수로 보는 나의 최애 사이트 Top 5!
         </h2>
         <div className="grid md:grid-cols-3 mb-150 mt-15 gap-x-8 gap-y-8 justify-items-center mb-24 fade-in-on-scroll">
@@ -81,22 +81,22 @@ const ExtensionHomePage = ({ userId }: Props) => {
           <PerDayTop5Chart userId={userId} period="30days" />
           <PerDayTop5Chart userId={userId} period="90days" />
         </div>
-        <h2 className="text-3xl font-semibold text-center text-gray-800 tracking-tight leading-snug mb-4">
+        <h2 className="text-3xl font-semibold text-center text-gray-800 tracking-tight leading-snug mb-4 fade-in-on-scroll">
           지난 일주일 동안 나는 언제 가장 활발했을까?
         </h2>
         <div className="mb-100 mt-3 fade-in-on-scroll">
           <PerDayGraphChart userId={userId} period="7days" />
         </div>
-        <h2 className="text-3xl font-semibold text-center text-gray-800 tracking-tight leading-snug mb-4">
+        <h2 className="text-3xl font-semibold text-center text-gray-800 tracking-tight leading-snug mb-4 fade-in-on-scroll">
           하루 중 내가 가장 바쁜 시간은?
         </h2>
-        <div className="mb-100 mt-3 fade-in-on-scroll">
+        <div className="mb-50 mt-3 fade-in-on-scroll">
           <PerTimePieChart userId={userId} period="7days" />
         </div>
-        <h2 className="text-3xl font-semibold text-center text-gray-800 tracking-tight leading-snug mb-4">
+        <h2 className="text-3xl font-semibold text-center text-gray-800 tracking-tight leading-snug mb-4 fade-in-on-scroll">
           나는 어떤 유형의 사람일까요?
         </h2>
-        <div className="mb-50 mt-5 fade-in-on-scroll">
+        <div className="mb-50 mt-3 fade-in-on-scroll">
           <PerCategoryPieChart userId={userId} period="7days" />
         </div>
       </section>
