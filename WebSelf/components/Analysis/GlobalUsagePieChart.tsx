@@ -23,6 +23,9 @@ const GlobalUsagePieChart = () => {
   const labels = data.map(d => d.domain);
   const values = data.map(d => Number(d.visitPercent));
 
+  console.log('📊 labels:', labels);
+  console.log('📊 values:', values);  
+
   const chartData = {
     labels,
     datasets: [
