@@ -18,12 +18,26 @@
   
 ---
 
+## 📁 파일 구조
+
+| Frontend | Backend |
+|----------|---------|
+| Frontend | Backend |
+| WebSelf/<br>│  ├── components/ &nbsp;&nbsp;&nbsp;&nbsp;# UI 재사용 컴포넌트 <br>│  ├── layouts/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 페이지 레이아웃 컴포넌트 <br>│  ├── pages/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 라우팅되는 각 페이지 <br>│  ├── public/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 정적 자산 디렉토리 <br>│  └── src/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 소스 루트 <br>├── index.html &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 진입 HTML <br>├── package.json &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 프론트 의존성 정의 <br>├── tailwind.config.js &nbsp;# Tailwind 설정 <br>├── tsconfig.json &nbsp;&nbsp;&nbsp;&nbsp;# TypeScript 설정 <br>└── vite.config.ts &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Vite 설정 | Server/ <br>├── node_modules/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 의존성 모듈 <br>├── utils/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 서버 내부 유틸 <br>│&nbsp;&nbsp;&nbsp;&nbsp;  └── siteCategory.js &nbsp;&nbsp;&nbsp;&nbsp;# 카테고리 분류 <br>├── 2025_CHALLKATHON_-water-... &nbsp;&nbsp;# 참고 문서 <br>├── dbconfig.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# DB 설정 <br>├── .gitignore <br>├── server.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 메인 서버 실행 <br>├── package.json <br>└── package-lock.json <br><br>WebSelf-extension/ &nbsp;&nbsp;&nbsp;&nbsp;# 크롬 확장 기능 <br>├── background.js <br>├── content_script.js <br>├── icon.png <br>├── manifest.json <br>├── package.json <br>└── package-lock.json <br><br>dataprocess/ &nbsp;&nbsp;&nbsp;&nbsp;# 파이썬 기반 데이터 분석기 <br>├── CurrAnalyze.py &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 현재 분석 <br>├── PastAnalyze.py &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 과거 분석 <br>└── DataAnalyze.py &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 날짜별 분석 |
+
+
+
+
+
+
+
+---
+
 ## 🛠️ Tech Stack
 
 | Frontend | Backend |배포 | 
 |----------|---------|---------|
 | React + Vite<br>TypeScript<br>Tailwind CSS | _Node(express.js)_ <br> Python | Vercel |
-
 
 ---
 
