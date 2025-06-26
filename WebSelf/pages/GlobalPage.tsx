@@ -36,7 +36,9 @@ const GlobalPage = () => {
       <TopButton />
       {/* 인트로 영역 */}
       <section className="min-h-screen h-auto pt-[30vh] px-8 py-5">
-        <GlobalSearchIntro />
+        <div className="mb-20">
+          <GlobalSearchIntro />
+        </div>
         {/* top site bubble 그래프 */}
         <h1 className="text-3xl font-semibold text-center text-gray-800 tracking-tight leading-snug mb-4 fade-in-on-scroll">전 세계에서 가장 핫한 사이트가 무엇일까요?</h1>
         <div className="mb-200 mt-5 fade-in-on-scroll">
