@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FaArrowUp } from 'react-icons/fa';
 
 interface Props {
-  showAfter?: number; // 몇 px 스크롤 후 보여줄지
+  showAfter?: number;
 }
 
 const TopButton: React.FC<Props> = ({ showAfter = 400 }) => {

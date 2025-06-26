@@ -44,8 +44,6 @@ const TypingIntro = () => {
       start: 'top center',
       onEnter: () => {
         lockScroll();
-
-        // 4단계 타이핑 완료 시간 후 해제 (1.5초 x 4 = 6초)
         setTimeout(() => {
           unlockScroll();
         }, 6000);

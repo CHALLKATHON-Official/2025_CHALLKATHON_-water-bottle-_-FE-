@@ -82,7 +82,7 @@ const PerTimePieChart: React.FC<Props> = ({ userId, period }) => {
   };
 
   return (
-    <div className="mt-10 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-100 to-white p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl">
+    <div className="mt-10 w-[700px] mx-auto rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-100 to-white p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl">
       <h3 className="mb-6 text-xl font-semibold text-blue-800 drop-shadow-lg">
         시간대별 방문 시계
       </h3>
