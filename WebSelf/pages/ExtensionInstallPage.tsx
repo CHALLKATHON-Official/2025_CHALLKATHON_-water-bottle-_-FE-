@@ -15,7 +15,7 @@ const ExtensionInstallPage = () => {
       </p>
 
       <a
-        href="../WebSelf-extension.zip"
+        href="/WebSelf-extension.zip"
         download
         className="bg-blue-600 text-white py-3 px-6 rounded-full hover:bg-blue-700 hover:scale-105 shadow-md transition-all mb-6"
       >
