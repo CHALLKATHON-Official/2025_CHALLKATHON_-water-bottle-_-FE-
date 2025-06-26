@@ -73,6 +73,7 @@ const GlobalTop8BubbleChart = () => {
               fontSize: '0.8rem',
               boxShadow: '0 2px 10px rgba(0,0,0,0.25)',
               textAlign: 'center',
+              textShadow: '5px 5px 5px rgba(0, 0, 0, 0.3)',
               padding: '4px',
               whiteSpace: 'nowrap',
               transition: 'transform 0.3s ease',
