@@ -30,7 +30,6 @@ const GlobalPage = () => {
     };
   }, []);
 
-
   return (
     <div className="relative">
       <GlobalIntro />
@@ -39,15 +38,18 @@ const GlobalPage = () => {
       <section className="min-h-screen h-auto pt-[30vh] px-8 py-5">
         <GlobalSearchIntro />
         {/* top site bubble 그래프 */}
-        <div className="mb-100 mt-50 fade-in-on-scroll">
+        <h1 className="mt-100">전 세계에서 가장 핫한 사이트가 무엇일까요?</h1>
+        <div className="mb-100 mt-5 fade-in-on-scroll">
           <GlobalTop8BubbleChart />
         </div>
         {/* 전체 사이트 원 그래프 */}
-        <div className="mb-100 mt-50 fade-in-on-scroll">
+        <h1>전 세계 사람들은 어떤 사이트를 가장 많이 쓸까?</h1>
+        <div className="mb-100 mt-5 fade-in-on-scroll">
           <GlobalUsagePieChart />
         </div>
         {/* 유형별 원 그래프 */}
-        <div className="mb-100 mt-50 fade-in-on-scroll">
+        <h1>다른 사람들이 좋아하는 유형을 확인해보아요!</h1>
+        <div className="mb-100 mt-5 fade-in-on-scroll">
           <GlobalCategoryPieChart />
         </div>
       </section>
