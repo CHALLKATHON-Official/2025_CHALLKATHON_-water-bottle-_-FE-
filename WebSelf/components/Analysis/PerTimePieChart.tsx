@@ -16,14 +16,16 @@ interface Props {
 }
 
 const getColor = (value: number, max: number): string => {
-  if (value === 0) return '#FFFFFF';
+  if (value === 0) return '#FFFFFF'; // 방문량 0이면 흰색
+
   const ratio = value / max;
-  if (ratio > 0.8) return '#6003b8';
-  if (ratio > 0.6) return '#7229ad';
-  if (ratio > 0.4) return '#9c69c5d2';
-  if (ratio > 0.2) return '#b989e6';
-  return '#f0beec';
+  if (ratio > 0.8) return '#990000'; // 가장 진한 빨강
+  if (ratio > 0.6) return '#cc0000';
+  if (ratio > 0.4) return '#e34c4c';
+  if (ratio > 0.2) return '#f28f8f';
+  return '#fde0e0'; // 가장 연한 빨강
 };
+
 
 const PerTimePieChart: React.FC<Props> = ({ userId, period }) => {
   const [hourlyData, setHourlyData] = useState<number[]>(Array(24).fill(0));

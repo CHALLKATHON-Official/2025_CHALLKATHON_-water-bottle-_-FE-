@@ -27,7 +27,6 @@ const PerDaysPieChart: React.FC<Props> = ({ userId }) => {
       for (const period of periods) {
         const res = await fetch(`https://webself-be.onrender.com/api/summary/${userId}/${period}`);
         const json = await res.json();
-        console.log(`🧪 ${period} 데이터`, json); // ← 이거 추가!
         results[period] = json.map((d: any) => ({
           ...d,
           visitPercent: d.visitPercent ?? 0,
@@ -43,7 +42,7 @@ const PerDaysPieChart: React.FC<Props> = ({ userId }) => {
   return (
     <div className="px-6 py-16 w-[1000px] h-[600px] mx-auto mx-auto bg-gradient-to-br from-blue-100 to-white duration-500 hover:scale-[1.01] hover:shadow-xl rounded-2xl shadow-lg">
       <h2 className="text-xl text-center font-bold text-blue-800 drop-shadow-lg mb-10">
-        사이트별 방문 비율 분석
+        기간별 사이트 방문 비율 분석
       </h2>
 
       <div className="flex flex-col md:flex-row justify-center items-center gap-3">
@@ -60,7 +59,6 @@ const PerDaysPieChart: React.FC<Props> = ({ userId }) => {
 
           const labels = entries.map(e => e.domain);
           const values = entries.map(e => e.visitPercent);
-          console.log('📊', period, '퍼센트값:', values);
 
           const chartData = {
             labels,
