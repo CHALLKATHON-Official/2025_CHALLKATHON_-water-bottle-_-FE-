@@ -42,11 +42,27 @@ const PerDayGraphChart: React.FC<Props> = ({ userId, period }) => {
   const [dailyData, setDailyData] = useState<DailyData[]>([]);
 
   useEffect(() => {
-    fetch(`https://webself-be.onrender.com/api/activity/${userId}/${period}`)
-      .then(res => res.json())
-      .then(data => setDailyData(data))
+    console.log("🟢 useEffect 실행됨");
+    console.log("🔍 userId:", userId);
+    console.log("🔍 period:", period);
+
+    const url = `https://webself-be.onrender.com/api/activity/${userId}/${period}`;
+    console.log("🧪 요청 URL:", url);
+
+    fetch(url)
+      .then(res => {
+        console.log("📦 응답 상태코드:", res.status);
+        return res.json();
+      })
+      .then(data => {
+        console.log("📊 일별 데이터:", data);
+        setDailyData(data);
+      })
       .catch(err => console.error('❌ 방문 통계 오류:', err));
   }, [userId, period]);
+
+
+
 
   const labels = dailyData.map(d => dayjs(d.date).format('M월 D일'));
   const values = dailyData.map(d => d.visitCount);

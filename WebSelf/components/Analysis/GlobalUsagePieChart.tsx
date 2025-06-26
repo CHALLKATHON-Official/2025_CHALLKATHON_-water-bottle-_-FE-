@@ -16,27 +16,12 @@ const GlobalUsagePieChart = () => {
   useEffect(() => {
     fetch('https://webself-be.onrender.com/api/global-visit-ratio')
       .then(res => res.json())
-      .then(json => {
-        console.log('🔥 raw data:', json);
-        const test = json.map(d => ({
-          domain: d.domain,
-          visitCount: d.visitCount,
-          visitPercent: d.visitPercent,
-          type: typeof d.visitPercent,
-          parsed: Number(d.visitPercent),
-        }));
-        console.table(test);
-        setData(json);
-      })
+      .then(setData)
       .catch(console.error);
   }, []);
 
   const labels = data.map(d => d.domain);
   const values = data.map(d => Number(d.visitPercent) * 100);
-  console.log('🔥 raw data:', data);
-
-  console.log('📊 labels:', labels);
-  console.log('📊 values:', values);
 
   const chartData = {
     labels,
