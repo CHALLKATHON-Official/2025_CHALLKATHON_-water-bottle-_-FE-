@@ -65,21 +65,28 @@ const ExtensionHomePage = ({ userId }: Props) => {
         <section className="h-screen w-[700px] mx-auto relative mb-100 mt-100 fade-in-on-scroll">
           <TypingIntro />
         </section>
-        <div className="mb-100 mt-50 fade-in-on-scroll" ref={chartRef}>
+        <div>
+          <h1>어떤 사이트를 가장 많이 방문했을까요?</h1>
+        </div>
+        <div className="mb-100 mt-10 fade-in-on-scroll" ref={chartRef}>
           <PerDaysPieChart userId={userId} />
         </div>
-        <div className="grid md:grid-cols-3 mb-150 mt-150 gap-x-8 gap-y-8 justify-items-center mb-24 fade-in-on-scroll">
+        <h2>어떤 사이트를 가장 많이 방문했을까요?</h2>
+        <div className="grid md:grid-cols-3 mb-150 mt-15 gap-x-8 gap-y-8 justify-items-center mb-24 fade-in-on-scroll">
           <PerDayTop5Chart userId={userId} period="7days" />
           <PerDayTop5Chart userId={userId} period="30days" />
           <PerDayTop5Chart userId={userId} period="90days" />
         </div>
-        <div className="mb-100 mt-100 fade-in-on-scroll">
+        <h2>지난 일주일동안 나는 언제 가장 활발했을까?</h2>
+        <div className="mb-100 mt-5 fade-in-on-scroll">
           <PerDayGraphChart userId={userId} period="7days" />
         </div>
-        <div className="mb-100 mt-100 fade-in-on-scroll">
+        <h2>하루중 내가 가장 바쁜 시간은?</h2>
+        <div className="mb-100 mt-5 fade-in-on-scroll">
           <PerTimePieChart userId={userId} period="7days" />
         </div>
-        <div className="mb-50 mt-100 fade-in-on-scroll">
+        <h2>나는 어떤 유형의 사람일까요?</h2>
+        <div className="mb-50 mt-5 fade-in-on-scroll">
           <PerCategoryPieChart userId={userId} period="7days" />
         </div>
       </section>
