@@ -64,6 +64,8 @@
 
 ---
 
+github backend part: https://github.com/CHALLKATHON-Official/2025_CHALLKATHON_-water-bottle-_-BE-
+
 
 📌 WebSelf 개인정보 처리방침 (Privacy Policy)
 
