@@ -25,7 +25,10 @@ const GlobalTop8BubbleChart = () => {
   useEffect(() => {
     fetch('https://webself-be.onrender.com/api/global-top8')
       .then(res => res.json())
-      .then(data => setSites(data))
+      .then(data => {
+        console.log('📊 글로벌 Top8 응답:', data); // 👈 이거 추가!
+        setSites(data);
+      })
       .catch(err => console.error('❌ 글로벌 분석 오류:', err));
   }, []);
 
