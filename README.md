@@ -18,12 +18,26 @@
   
 ---
 
+## 📁 파일 구조
+
+| Frontend | Backend |
+|----------|---------|
+| Frontend | Backend |
+| WebSelf/<br>│  ├── components/     # UI 재사용 컴포넌트 <br>│  ├── layouts/         # 페이지 레이아웃 컴포넌트 <br>│  ├── pages/              # 라우팅되는 각 페이지 <br>│  ├── public/            # 정적 자산 디렉토리 <br>│  └── src/                     # 소스 루트 <br>├── index.html         # 진입 HTML <br>├── package.json      # 프론트 의존성 정의 <br>├── tailwind.config.js  # Tailwind 설정 <br>├── tsconfig.json     # TypeScript 설정 <br>└── vite.config.ts       # Vite 설정 | Server/ <br>├── node_modules/         # 의존성 모듈 <br>├── utils/                             # 서버 내부 유틸 <br>│      └── siteCategory.js     # 카테고리 분류 <br>├── 2025_CHALLKATHON_-water-...   # 참고 문서 <br>├── dbconfig.js                         # DB 설정 <br>├── .gitignore <br>├── server.js                         # 메인 서버 실행 <br>├── package.json <br>└── package-lock.json <br><br>WebSelf-extension/     # 크롬 확장 기능 <br>├── background.js <br>├── content_script.js <br>├── icon.png <br>├── manifest.json <br>├── package.json <br>└── package-lock.json <br><br>dataprocess/     # 파이썬 기반 데이터 분석기 <br>├── CurrAnalyze.py           # 현재 분석 <br>├── PastAnalyze.py           # 과거 분석 <br>└── DataAnalyze.py          # 날짜별 분석 |
+
+
+
+
+
+
+
+---
+
 ## 🛠️ Tech Stack
 
 | Frontend | Backend |배포 | 
 |----------|---------|---------|
 | React + Vite<br>TypeScript<br>Tailwind CSS | _Node(express.js)_ <br> Python | Vercel |
-
 
 ---
 
