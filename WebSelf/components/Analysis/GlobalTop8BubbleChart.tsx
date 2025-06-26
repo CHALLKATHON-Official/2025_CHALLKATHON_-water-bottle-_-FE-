@@ -29,7 +29,7 @@ const GlobalTop8BubbleChart = () => {
       .catch(err => console.error('❌ 글로벌 분석 오류:', err));
   }, []);
 
-  const counts = sites.map(site => site.count).filter(c => typeof c === 'number' && !isNaN(c));
+  const counts = sites.map(site => Number(site.count)).filter(c => !isNaN(c));
   const maxCount = counts.length > 0 ? Math.max(...counts) : 1;
 
   return (

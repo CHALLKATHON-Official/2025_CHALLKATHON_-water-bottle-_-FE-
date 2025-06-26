@@ -23,7 +23,7 @@ const GlobalCategoryPieChart = () => {
 
   const total = data.reduce((sum, item) => sum + item.totalTimeMs, 0);
   const labels = data.map((d) => d.category);
-  const values = data.map((d) => ((d.totalTimeMs / total) * 100).toFixed(2));
+  const values = data.map((d) => parseFloat(((d.totalTimeMs / total) * 100).toFixed(2)));
 
   const chartData = {
     labels,
