@@ -1,5 +1,4 @@
 // src/components/ExtensionIntro.tsx
-import React from 'react';
 
 interface Props {
   opacity: number;
